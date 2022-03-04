@@ -1,0 +1,832 @@
+{{#if locals.isDesktop}}
+    <div class="main-scroller">
+        <ul>
+            <li data-scroll-nav="1" data-section="Main" id="section_01"><span>Main</span></li>
+            <li data-scroll-nav="2" data-section="Services" id="section_02"><span>Services</span></li>
+            <li data-scroll-nav="3" data-section="Products" id="section_03"><span>Products</span></li>
+            <li data-scroll-nav="4" data-section="Resources" id="section_04"><span>Resources</span></li>
+            <!--<li data-scroll-nav="4" data-section="Customer" id="section_05"><span>Customer</span></li>-->
+            <li data-scroll-nav="6" data-section="Company" id="section_05"><span>Company</span></li>
+        </ul>
+    </div>
+    {{#if section}}
+        <script>
+            $(document).ready(function () {
+                $('#section_{{section}}').click()
+            })
+        </script>
+    {{/if}}
+{{/if}}
+
+<div id="main">
+
+    <section id="main-top" class="height-auto" data-scroll-index="1">
+        <div class="container">
+            <div class="txtCon">
+                <div class="main-top-copy-img ani-opacity">
+                    <div class="main-top-copy01 wow fadeIn" data-wow-duration="1.3s" data-wow-delay="0.5s"><img
+                            src="/img/main/main-top-copy01.png"></div>
+                    <div class="main-top-copy02 wow fadeIn" data-wow-duration="1.4s" data-wow-delay="1s"><img
+                            src="/img/main/main-top-copy02.png"></div>
+                </div>
+                <p class="sub wow fadeInUp ani-opacity" data-wow-duration="1s" data-wow-delay="0.4s">
+                    We aim to provide best-possible solutions <br class="pc-only">
+                    in realtime or near realtime in order to support your decision-making in hard space problems.<br
+                        class="pc-only">
+                    We will contribute to keep the space safer, more sustainable and useful.
+                </p>
+            </div>
+        </div>
+        <span class="mouse-icon updown"></span>
+        <div class="bg fullscreen-image"
+             style="background-image:url('/img/main/main-top-bg{{#if locals.isMobile}}-mobile{{/if}}.png');"></div>
+    </section>
+
+
+    <section data-scroll-index="2">
+        <div class="section-title">Services</div>
+
+        <div class="subSection section-01">
+            <div class="container">
+                <div class="txtCon">
+                    <p class="section-number wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s"></p>
+                    <p class="sub-title  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">[1]
+                        Search Services</p>
+                    <div class="title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.15s">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Conjunction Assessment</h2>
+                        <sub style="font-style: italic;">Am I gonna be hit by someone else?</sub>
+                    </div>
+                    <!-- 슬라이드시 교채될 콘텐츠 -->
+                    <div class="title" style="display:none;">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Trespasser Catcher</h2>
+                        <sub style="font-style: italic;">Who will be trespassing my backyard tomorrow?</sub>
+                    </div>
+                    <div class="title" style="display:none;">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Watcher Catcher</h2>
+                        <sub style="font-style: italic;">Who will be watching me tomorrow?</sub>
+                    </div>
+                    <a href="/service/search" class="link-show wow fadeInRight" data-wow-duration="1s"
+                       data-wow-delay="0.2s">Learn
+                        more</a>
+                    {{#if locals.isMobile}}
+                        <span class="swiper-prev"></span>
+                        <span class="swiper-next"></span>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="section-thumb">
+                {{#if locals.isMobile}}
+                    <span class="swiper-prev"></span>
+                    <span class="swiper-next"></span>
+                {{/if}}
+                <div class="swiper-pagination"></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <video src="/img/main/section-thumb/service_01_slide01.mp4" controls class="video"
+                                   poster="/img/main/section-thumb/service_01_slide01_poster.png">
+                            </video>
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="/img/main/section-thumb/service_01_slide02.mp4" controls class="video"
+                                   poster="/img/main/section-thumb/service_01_slide02_poster.png">
+                            </video>
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="/img/main/section-thumb/service_01_slide03.mp4" controls class="video"
+                                   poster="/img/main/section-thumb/service_01_slide03_poster.png">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg"></div>
+        </div>
+
+        <div class="subSection section-02">
+            <div class="container">
+                <div class="txtCon">
+                    <p class="section-number wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s"></p>
+                    <p class="sub-title  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">
+                        [2] Optimization Services</p>
+                    <div class="title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.15s">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Maneuver Optimization</h2>
+                        <sub style="font-style: italic;">Wanna walk around?</sub>
+                    </div>
+                    <!-- 슬라이드시 교채될 콘텐츠 -->
+                    <div class="title" style="display:none;">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Data Transmission
+                            Optimization</h2>
+                        <sub style="font-style: italic;">Wanna optimize data traffic of constellation tomorrow?</sub>
+                    </div>
+                    <a href="/service/decision" class="link-show wow fadeInRight" data-wow-duration="1s"
+                       data-wow-delay="0.2s">Learn more</a>
+                    {{#if locals.isMobile}}
+                        <span class="swiper-prev"></span>
+                        <span class="swiper-next"></span>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="section-thumb">
+                {{#if locals.isMobile}}
+                    <span class="swiper-prev"></span>
+                    <span class="swiper-next"></span>
+                {{/if}}
+                <div class="swiper-pagination"></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/img/main/section-thumb/service_02_slide01.png">
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="/img/main/section-thumb/service_02_slide02.mp4" controls class="video"
+                                   poster="/img/main/section-thumb/service_02_slide02_poster.png">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg"></div>
+        </div>
+
+        <div class="subSection section-03">
+            <div class="container">
+                <div class="txtCon">
+                    <p class="section-number wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s"></p>
+                    <p class="sub-title  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">[3]
+                        Launch
+                        Services</p>
+                    <div class="title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.15s">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Launch Conjunction</h2><br>
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Assessment</h2>
+                        <sub style="font-style: italic;">I don’t wanna cross a highway with<br>eyes closed!</sub>
+                    </div>
+                    <!-- 슬라이드시 교채될 콘텐츠 -->
+                    <div class="title" style="display:none;">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Launch Optimization</h2>
+                        <sub style="font-style: italic;">I wanna go to work as safe as possible.</sub>
+                    </div>
+                    <a href="/service/launch" class="link-show wow fadeInRight" data-wow-duration="1s"
+                       data-wow-delay="0.2s">Learn more</a>
+                    {{#if locals.isMobile}}
+                        <span class="swiper-prev"></span>
+                        <span class="swiper-next"></span>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="section-thumb">
+                {{#if locals.isMobile}}
+                    <span class="swiper-prev"></span>
+                    <span class="swiper-next"></span>
+                {{/if}}
+                <div class="swiper-pagination"></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <video src="/img/main/section-thumb/service_03_slide01.mp4" controls class="video"
+                                   poster="/img/main/section-thumb/service_03_slide01_poster.png">
+                            </video>
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="/img/main/section-thumb/service_03_slide02.mp4" controls class="video"
+                                   poster="/img/main/section-thumb/service_03_slide02_poster.png">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg"></div>
+        </div>
+
+        <div class="subSection section-04">
+            <div class="container">
+                <div class="txtCon">
+                    <p class="section-number wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s"></p>
+                    <p class="sub-title  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">[4] Data
+                        Analytics Services</p>
+                    <div class="title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.15s">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Current Catalogue</h2><br>
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Analytics</h2>
+                        <sub style="font-style: italic;">Wanna know the intrinsic spatiotemporal<br>properties of
+                            current
+                            catalogue?</sub>
+                    </div>
+                    <!-- 슬라이드시 교채될 콘텐츠 -->
+                    <div class="title" style="display:none;">
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">New Constellation</h2><br>
+                        <h2 class="mainColor" style="border-bottom: 2px solid #FFCA00;">Analytics</h2>
+                        <sub style="font-style: italic;">What happens if a new constellation is inserted?</sub>
+                    </div>
+                    <a href="/service/analytics" class="link-show wow fadeInRight" data-wow-duration="1s"
+                       data-wow-delay="0.2s">Learn more</a>
+                    {{#if locals.isMobile}}
+                        <span class="swiper-prev"></span>
+                        <span class="swiper-next"></span>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="section-thumb">
+                {{#if locals.isMobile}}
+                    <span class="swiper-prev"></span>
+                    <span class="swiper-next"></span>
+                {{/if}}
+                <div class="swiper-pagination"></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/img/main/section-thumb/service_04_slide01.png">
+                        </div>
+                        <div class="swiper-slide">
+                            <video src="/img/main/section-thumb/service_04_slide02.mp4" controls class="video"
+                                   poster="/img/main/section-thumb/service_04_slide02.png"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg"></div>
+        </div>
+
+        <!--<div class="subSection section-05" style="display:none;">
+        <div class="container">
+            <div class="txtCon">
+                <p class="section-number wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s"></p>
+                <p class="sub-title  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">[5] Data Base Services</p>
+                <div class="title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.15s">
+                    <h2  class="mainColor" style="border-bottom: 2px solid #FFCA00;">Current Catalogue</h2><br>
+                    <h2  class="mainColor" style="border-bottom: 2px solid #FFCA00;">Analytics</h2>
+                    <sub style="font-style: italic;">Wanna know the intrinsic spatiotemporal<br>properties of current catalogue?</sub>
+                </div>
+                <a href="#" class="link-show wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">Learn more</a>
+                {{#if locals.isMobile}}
+                    <span class="swiper-prev"></span>
+                    <span class="swiper-next"></span>
+                {{/if}}
+            </div>
+        </div>
+        <div class="section-thumb">
+        {{#if locals.isMobile}}
+            <span class="swiper-prev"></span>
+            <span class="swiper-next"></span>
+        {{/if}}
+        <div class="swiper-pagination"></div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/main/section-thumb/service_05_slide01.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg"></div>
+    </div>-->
+    </section>
+
+
+    <div class="section-bottom" style="background-image:url('/img/main/main-bottom-bg.png');">
+        <section id="products" class="section-products" data-scroll-index="3">
+            <div class="section-title">Products</div>
+            <div class="container">
+                {{#if locals.isDesktop}}
+                    <div class="tab-wrapper">
+                        <div class="nav-pannal">
+                            <div class="nav-pannal-inner">
+                                <span class="tab active" data-target="tc01">Web Application</span>
+                                <span class="tab active" data-target="tc02">Intranet Development</span>
+                                <span class="tab active" data-target="tc03">Standalone Programs</span>
+                                <span class="tab active" data-target="tc04">Licensing Libraries</span>
+                            </div>
+                        </div>
+                        <div class="tabsContainer" id="tc01">
+                            <div class="txtCon">
+                                <p>
+                                    We have four product types. The first and primary method of service is the web
+                                    service. If it is not desirable for any reason, we can provide
+                                    an intranet for users’ organization. This might apply to organizations related to
+                                    national security or those maintaining relatively large
+                                    constellations. Some of our services can be delivered as standalone applications,
+                                    possibly as apps running on smartphones. The fourth is
+                                    our library that can be licensed by application developers: We anticipate this is
+                                    very useful for solving many critical space problems that we
+                                    do not know yet. Our spatiotemporal databases and spatiotemporal analyses about
+                                    current catalog together with a new hypothetical
+                                    constellation would be useful services to the space community.
+                                </p>
+                                <!-- <a href="#" class="link-show">Learn more</a> -->
+                            </div>
+                        </div>
+                        <!-- *추후 수정 가능
+                        <div class="tabsContainer" id="tc02" style="display:;">
+                            <div class="txtCon">
+                                <p>
+                                    We have four product types. The first and primary method of service is the web service. If it is not desirable for any reason, we can provide
+    an intranet for users’ organization. This might apply to organizations related to national security or those maintaining relatively large
+    constellations. Some of our services can be delivered as standalone applications, possibly as apps running on smartphones. The fourth is
+    our library that can be licensed by application developers: We anticipate this is very useful for solving many critical space problems that we
+    do not know yet. Our spatiotemporal databases and spatiotemporal analyses about current catalog together with a new hypothetical
+    constellation would be useful services to the space community.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tabsContainer" id="tc03" style="display:;">
+                            <div class="txtCon">
+                                <p>
+                                    We have four product types. The first and primary method of service is the web service. If it is not desirable for any reason, we can provide
+    an intranet for users’ organization. This might apply to organizations related to national security or those maintaining relatively large
+    constellations. Some of our services can be delivered as standalone applications, possibly as apps running on smartphones. The fourth is
+    our library that can be licensed by application developers: We anticipate this is very useful for solving many critical space problems that we
+    do not know yet. Our spatiotemporal databases and spatiotemporal analyses about current catalog together with a new hypothetical
+    constellation would be useful services to the space community.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tabsContainer" id="tc04" style="display:;">
+                            <div class="txtCon">
+                                <p>
+                                    We have four product types. The first and primary method of service is the web service. If it is not desirable for any reason, we can provide
+    an intranet for users’ organization. This might apply to organizations related to national security or those maintaining relatively large
+    constellations. Some of our services can be delivered as standalone applications, possibly as apps running on smartphones. The fourth is
+    our library that can be licensed by application developers: We anticipate this is very useful for solving many critical space problems that we
+    do not know yet. Our spatiotemporal databases and spatiotemporal analyses about current catalog together with a new hypothetical
+    constellation would be useful services to the space community.
+                                </p>
+                            </div>
+                        </div>-->
+                    </div>
+                {{else}}
+                    <div class="slideWrapper product">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="txtCon">
+                                        <div class="title">
+                                            <span style="inline-block mtm15">Web Application</span>
+                                            <span style="inline-block mtm15">Intranet Development</span>
+                                            <span style="inline-block mtm15">Standalone Programs</span>
+                                            <span style="inline-block">Licensing Libraries</span>
+                                        </div>
+                                        <p>
+                                            We have four product types. The first and primary method of service is the
+                                            web service. If it is not desirable for any reason, we can provide
+                                            an intranet for users’ organization. This might apply to organizations
+                                            related to national security or those maintaining relatively large
+                                            constellations. Some of our services can be delivered as standalone
+                                            applications, possibly as apps running on smartphones. The fourth is
+                                            our library that can be licensed by application developers: We anticipate
+                                            this is very useful for solving many critical space problems that we
+                                            do not know yet. Our spatiotemporal databases and spatiotemporal analyses
+                                            about current catalog together with a new hypothetical
+                                            constellation would be useful services to the space community.
+                                        </p>
+                                        <a href="#" class="link-show">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<span class="swiper-prev"></span>
+                        <span class="swiper-next"></span>
+                        <div class="swiper-pagination"></div>-->
+                    </div>
+                {{/if}}
+            </div>
+        </section>
+
+
+        <section class="section-resources" data-scroll-index="4">
+            <div class="section-title">Resources</div>
+            <div class="container">
+                <div class="tab-wrapper">
+                    <ul>
+                        <li><a href="/resources/DOC_01_Whitepaper_SPACEMAP_JAN_1_2022.docx" target="_blank"
+                               class="icon-file">The_Whitepaper_of_SPACEMAP_JAN_1_2022</a></li>
+                        <li><a href="/resources/DOC_02_The_initial_idea_of_SPACEMAP_algorithm_AMOS2017.pdf"
+                               target="_blank" class="icon-file">The_initial_idea_of_SPACEMAP_algorithm_AMOS2017</a>
+                        </li>
+                        <li><a href="/resources/DOC_03_The_brief_of_SPACEMAP_algorithm_AMOS2020.pdf" target="_blank"
+                               class="icon-file">The_brief_of_SPACEMAP_algorithm_AMOS2020</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!--<section class="section-customer" data-scroll-index="5">
+            <div class="section-title">Customer</div>
+            <div class="container">
+                <div class="tab-wrapper">
+                    <div class="tabsContainer">
+                        <div class="txtCon">
+                            <p>
+                                We are looking forward to serving diverse groups in space community with our realtime or near realtime decision-making platform. Anticipated groups include satellite owners and operators, launchers, providers of various services, international and national space organizations, space tour companies, active debris removing companies, insurance companies, research labs in universities and institutions, software developers, etc.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+
+        <section class="section-company" data-scroll-index="6">
+            <div class="section-title">Company</div>
+
+            <div class="container about-container">
+                <div class="txtCon">
+                    <p class="sub-title mainColor wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">
+                        About</p>
+                </div>
+                <div class="tab-wrapper">
+                    <p>
+                        SPACEMAP INC. is a K-startup company which was founded in September, 2021 as a spin-off of
+                        School of Mechanical Engineering, Hanyang University, Korea. The initial idea was motivated by
+                        research funded by the US Air Force about conjunction assessment and maneuver planning which was
+                        based on the prior works done by Douglas Kim, CEO & Founder, as a Leader Research Initiative by
+                        National Research Foundation. The company is currently located in Seoul, Korea. It participated
+                        in AMOS2021 and CES2022.
+                    </p>
+                    <p>
+                        42 is the answer to the Ultimate Question of life, the universe, and everything. Deep Thought, a
+                        computer of a small planet size, had to calculate over 7.5 million years to find the answer to
+                        the Ultimate Question. This is a story from The Hitchhiker’s Guide to the Galaxy written by
+                        Douglas Adams. SPACEMAP aims to find solutions to hard space problems faster than Deep Thought.
+                    </p>
+                </div>
+            </div>
+
+            <div class="container our-team">
+                <div class="txtCon">
+                    <p class="sub-title mainColor wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">
+                        Our Team
+                    </p>
+                </div>
+                <div class="swiper-container">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <div class="thumb"><img src="/img/main/team01.png"></div>
+                            <div class="listCon">
+                                <div class="subject">Deok-Soo (Doug) Kim</div>
+                                <p class="info">CEO & Founder</p>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="thumb"><img src="/img/main/team02.png"></div>
+                            <div class="listCon">
+                                <div class="subject">Peter JH Ryu</div>
+                                <p class="info">Partner in Hanyang University</p>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="thumb"><img src="/img/main/team03.png"></div>
+                            <div class="listCon">
+                                <div class="subject">Shawn SH Choi</div>
+                                <p class="info">Partner in Hanyang University</p>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="thumb"><img src="/img/main/team04.png"></div>
+                            <div class="listCon">
+                                <div class="subject">Hee Yol Yu</div>
+                                <p class="info">Senior Advisor</p>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="thumb"><img src="/img/main/team05.png"></div>
+                            <div class="listCon">
+                                <div class="subject">Sang Rim Choi</div>
+                                <p class="info">Senior Advisor</p>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="thumb"><img src="/img/main/team06.jpg"></div>
+                            <div class="listCon">
+                                <div class="subject">Misoon Y. Mah, President and CEO of M&K Research and Development,
+                                    Inc
+                                </div>
+                                <p class="info">Senior Advisor</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <span class="swiper-prev"></span>
+                    <span class="swiper-next"></span>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- contactUs -->
+            <div id="contactUs" class="container mtm100">
+                <div class="txtCon">
+                    <p class="sub-title mainColor wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">Contact
+                        Us</p>
+                </div>
+                <header style="display:none;">
+                    <span class="m-logo" alt="spacemap">SPACEMAP</span>
+                    <p>
+                        SpaceMap is a K-startup company that aims to be "The Satellite's Guide to the Galaxy."<br>
+                        Our objective is to provide best-possible solutions in realtime or near realtime in order to
+                        support your decision-making in hard space problems.<br>
+                        We will contribute to keeping the space safer, more sustainable and useful. We are looking
+                        forward
+                        to helping you.
+                    </p>
+                </header>
+
+                {{>contactUs}}
+
+            </div>
+            <!-- //contactUs -->
+
+            <!--<img src="img/main/main-bottom-bg2.png" class="main-bottom-bg2">-->
+
+            <!-- hiring -->
+            <div id="hiring" class="container" style="display:none;">
+                <div class="txtCon">
+                    <p class="sub-title mainColor wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.1s">
+                        Hiring</p>
+                </div>
+                <div class="hiring-title">
+                    WE ARE<br>HIRING
+                </div>
+
+                <!-- slideWrapper -->
+                <div class="slideWrapper hiring">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <ul class="webzine-gall">
+                                    <li>
+                                        <div class="thumb" style="background-image:url('/img/temp/team-01.png');"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="webzine-gall">
+                                    <li>
+                                        <div class="thumb" style="background-image:url('/img/temp/team-01.png');"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="webzine-gall">
+                                    <li>
+                                        <div class="thumb" style="background-image:url('/img/temp/team-01.png');"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="swiper-slide">
+                                <ul class="webzine-gall">
+                                    <li>
+                                        <div class="thumb" style="background-image:url('/img/temp/team-01.png');"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb"></div>
+                                        <div class="slideCon">
+                                            <div class="subject">Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry.
+                                            </div>
+                                            <p class="info">DUMMY TEXT</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="swiper-prev"></span>
+                        <span class="swiper-next"></span>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <!-- //slideWrapper -->
+            </div>
+            <!-- //hiring -->
+
+        </section>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+        {{#if locals.isDesktop}}
+        $.scrollIt({
+            upKey: 38,
+            downKey: 40,
+            easing: 'easeInOutExpo',
+            scrollTime: 1000,
+            activeClass: 'active',
+            onPageChange: null,
+            topOffset: -100,
+        })
+        {{/if}}
+    $('.section-thumb').each(function () {
+        var section_thumb = $(this)
+        var mySwiper = new Swiper($(section_thumb.find('.swiper-container')), {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
+            {{#if locals.isMobile}}
+                autoHeight: false,
+            {{/if}}
+            onSlideChangeStart: function () {
+                var currentSlide = mySwiper.realIndex
+                section_thumb.parent().find('.title').hide()
+                section_thumb.parent().find('.title').eq(currentSlide).show()
+            },
+            onSlideChangeEnd: function () {
+                if ($('.swiper-slide-prev video, .swiper-slide-next video').length) {
+                    $('.swiper-slide-prev video, .swiper-slide-next video').get(0).pause()
+                }
+            },
+            prevButton: $(section_thumb.find('.swiper-prev')),
+            nextButton: $(section_thumb.find('.swiper-next')),
+            pagination: $(section_thumb.find('.swiper-pagination')),
+            paginationClickable: true,
+        })
+    })
+
+        {{#if locals.isMobile}}
+        var swiper = new Swiper('.our-team .swiper-container', {
+            slidesPerView: 3.2,
+            spaceBetween: 85,
+            centeredSlides: false,
+            prevButton: '.our-team .swiper-prev',
+            nextButton: '.our-team .swiper-next',
+            pagination: '.our-team .swiper-pagination',
+            paginationClickable: true,
+            breakpoints: {
+                1630: {
+                    slidesPerView: 3,
+                    spaceBetween: 80,
+                },
+                1480: {
+                    slidesPerView: 2.8,
+                    spaceBetween: 70,
+                },
+                1320: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 50,
+                },
+                1120: {
+                    slidesPerView: 2,
+                    spaceBetween: 50,
+                },
+                1020: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 40,
+                },
+                680: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                },
+            },
+        })
+        {{/if}}
+
+    var swiper = new Swiper('.hiring .swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 80,
+        centeredSlides: true,
+        prevButton: '.hiring .swiper-prev',
+        nextButton: '.hiring .swiper-next',
+        pagination: '.hiring .swiper-pagination',
+        paginationClickable: true,
+    })
+
+    var swiper = new Swiper('.product .swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 40,
+        centeredSlides: true,
+        autoHeight: true,
+        prevButton: '.product .swiper-prev',
+        nextButton: '.product .swiper-next',
+        pagination: '.product .swiper-pagination',
+        paginationClickable: true,
+    })
+
+    //tab 컨트롤
+    /*
+    $('.tab-wrapper .tab').click(function(event) {
+        var target = $(this).attr('data-target');
+        $(this).siblings('.tab').removeClass('active');
+        $(this).addClass('active');
+        $(this).parent().parent().parent().find('.tabsContainer').hide();
+        $('#' + target).show();
+    });
+    */
+</script>

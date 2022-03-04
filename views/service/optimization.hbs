@@ -1,0 +1,65 @@
+<!-- <div class="subpage" id="service02"> -->
+<div class="subpage" id="service01">
+
+    <div class="sub-top"
+         style="background-image:url('/img/subpage/top/sub-top02{{#if locals.isMobile}}-mobile{{/if}}.png')">
+        <div class="txtCon">
+            <div class="h1 wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.1s">Services</div>
+            <p class="wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.3s">
+                SpaceMap provides realtime or near realtime<br>
+                services upon customer-supplied input parameters.<br>
+                The services include the followings.
+            </p>
+        </div>
+    </div>
+
+    <section class="secConainer">
+        <div class="section-title">Optimization Services</div>
+
+        <ul class="ul-container">
+			<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">				
+				<div class="textCon">					
+					<div class="box-title">Maneuver Optimization</div>
+					<p>
+						Suppose that you want to maneuver to avoid a predicted conjunction. You want to be as safe as possible while you minimize propellant usage and mission interrupt. As a maneuver can cause a secondary and tertiary conjunctions with nearby objects, a computation-intensive spatiotemporal neighborhood exploration is inevitable. We take a set of your maneuver alternatives and quickly evaluate them to produce Maneuver Reward Matrix from which you can make an optimal choice.
+					</p>
+					<a href="/cesium/q1" class="link-exp wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">EXPLORE</a>
+				</div>
+			</li>
+
+			<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+				<div class="textCon">					
+					<div class="box-title">Data Transmission Optimization</div>
+					<p>
+						If you own a communication constellation, you want to maximize its utilization. If you can increase 5% utilization of a 2,000 satellite constellation, you may save about $20M/year (See the Whitepaper). There are many optimization problems in constellations with extreme spatiotemporal dynamics. We provide the best-possible solution to many such problems through our computational geometric infrastructure. The demo video is just one of the simplest examples.
+					</p>
+					<a href="/cesium/q1" class="link-exp wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">EXPLORE</a>
+				</div>
+			</li>
+        </ul>
+
+    </section>
+</div>
+
+
+<script>
+    $('.slide-img-con').each(function() {
+        var section_thumb = $(this);
+        var mySwiper = new Swiper($(section_thumb.find('.swiper-container')), {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
+            autoHeight: true,
+            onSlideChangeStart: function() {},
+            onSlideChangeEnd: function() {
+                if ($('.swiper-slide-prev video, .swiper-slide-next video').length) {
+                    $('.swiper-slide-prev video, .swiper-slide-next video').get(0).pause();
+                }
+            },
+            prevButton: $(section_thumb.find('.swiper-prev')),
+            nextButton: $(section_thumb.find('.swiper-next')),
+            pagination: $(section_thumb.find('.swiper-pagination')),
+            paginationClickable: true,
+        });
+    });
+</script>

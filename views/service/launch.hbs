@@ -1,0 +1,64 @@
+<!-- <div class="subpage" id="service03"> -->
+<div class="subpage" id="service01">
+
+    <div class="sub-top"
+         style="background-image:url('/img/subpage/top/sub-top03{{#if locals.isMobile}}-mobile{{/if}}.png')">
+        <div class="txtCon">
+            <div class="h1 wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.1s">Services</div>
+            <p class="wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.3s">
+                SpaceMap provides realtime or near realtime<br>
+                services upon customer-supplied input parameters.<br>
+                The services include the followings.
+            </p>
+        </div>
+    </div>
+
+    <section class="secConainer">
+        <div class="section-title">Launch Services</div>
+
+        <ul class="ul-container">
+			<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+				<div class="textCon">					
+					<div class="box-title">Launch Conjunction Assessment</div>
+					<p>
+						Suppose that you have a vehicle to be launched at a fixed moment at a fixed location. Then, you want to assess the collision-risk of your vehicle against all space objects. If the vehicle follows its planned spatiotemporal trajectory exactly, it might be sufficient to consider the closest approaching object. However, any flying vehicles have spatiotemporal errors and you need to consider more than one approaching objects. We find the k-nearest objects during your flight in real-time, k>0, from which you can define your own measure of the risk. If you have in-house error model, our report will be more helpful. If you are a serious launcher, you may want to automatically feedback this real-time assessment to your flight control system using vehicle’s telemetry data: We call it LCA-in-the-Loop (LitL, See the Whitepaper).
+					</p>
+					<a href="/cesium/q1" class="link-exp wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">EXPLORE</a>
+				</div>
+			</li>
+
+			<li class="slide wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+				<div class="textCon">					
+					<div class="box-title">Launch Optimization</div>
+					<p>
+						As a launcher, you want to know the optimal time-of-launch (ToL) from conjunction perspective. This is computationally challenging. Suppose you have a trajectory-of-launch (TRoL) and a launch-time-window (LTW) at a fixed launch location. We report you Launch Safety Matrix, which is similar like Maneuver Reward Matrix, from which you can choose the optimal ToL within LTW under a measure you define. Computation is very fast if not real-time even if this is done during launch planning. If you have N TRoL alternatives, we can find the optimal combination of TRoL and ToL (See the Whitepaper). 
+					</p>
+					<a href="/cesium/q1" class="link-exp wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">EXPLORE</a>
+				</div>
+			</li>
+        </ul>
+
+    </section>
+</div>
+
+<script>
+    $('.slide-img-con').each(function() {
+        var section_thumb = $(this);
+        var mySwiper = new Swiper($(section_thumb.find('.swiper-container')), {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
+            autoHeight: true,
+            onSlideChangeStart: function() {},
+            onSlideChangeEnd: function() {
+                if ($('.swiper-slide-prev video, .swiper-slide-next video').length) {
+                    $('.swiper-slide-prev video, .swiper-slide-next video').get(0).pause();
+                }
+            },
+            prevButton: $(section_thumb.find('.swiper-prev')),
+            nextButton: $(section_thumb.find('.swiper-next')),
+            pagination: $(section_thumb.find('.swiper-pagination')),
+            paginationClickable: true,
+        });
+    });
+</script>

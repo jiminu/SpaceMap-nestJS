@@ -1,0 +1,36 @@
+{{#if data.items}}
+    <div class="tbl-pager">
+        <ul>
+            <!--            <li>-->
+            <!--                <a href="{{data.links.first}}" class="pg_btn first"></a>-->
+            <!--            </li>-->
+            <li>
+                <a href="{{data.links.previous}}" class="prev"></a>
+            </li>
+
+            {{#if (intCompare paging.start '>' 0)}}
+                <li class="">&middot;&middot;&middot;</li>
+            {{/if}}
+
+            {{#for paging.start paging.end}}
+                <li>
+                    <a href="{{pageLink ../paging.route (sum this 1)}}"
+                       class="{{#if (isEqual ../data.meta.currentPage (sum this 1))}}current{{/if}}">
+                        {{sum this 1}}
+                    </a>
+                </li>
+            {{/for}}
+
+            {{#if (intCompare paging.end '<' data.meta.totalPages)}}
+                <li class="">&middot;&middot;&middot;</li>
+            {{/if}}
+
+            <li>
+                <a href="{{data.links.next}}" class="next"></a>
+            </li>
+            <!--            <li>-->
+            <!--                <a href="{{data.links.last}}" class="pg_btn last"></a>-->
+            <!--            </li>-->
+        </ul>
+    </div>
+{{/if}}

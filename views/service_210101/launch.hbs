@@ -1,0 +1,167 @@
+<!-- <div class="subpage" id="service03"> -->
+<div class="subpage" id="service01">
+
+    <div class="sub-top"
+         style="background-image:url('/img/subpage/top/sub-top03{{#if locals.isMobile}}-mobile{{/if}}.png')">
+        <div class="txtCon">
+            <div class="h1 wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.1s">Services</div>
+            <p class="wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.3s">
+                SpaceMap provides realtime or near realtime<br>
+                services upon customer-supplied input parameters.<br>
+                The services include the followings.
+            </p>
+        </div>
+    </div>
+
+    <section class="secConainer">
+        <div class="section-title">Launch Services</div>
+
+        <ul class="ul-container">
+            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <div class="img-con" style="display:none;">
+                    <!-- <img src="/img/subpage/img06.png" > -->
+                    <video src="/img/main/section-thumb/service_03_slide01.mp4" controls class="video"
+                           poster="/img/main/section-thumb/service_03_slide01_poster.png"
+                           style="{{#if
+                                   locals.isDesktop}}position: absolute;right: 0;bottom: 0;border-radius: 30px;max-width:530px;{{else}}position:relative;width:100%;{{/if}}">
+                        ﻿
+                    </video>
+                    <p class="img-info">
+                        Launch conjunction assessment (LCA) of a vehicle launched at Boca Chica, TX. The coordinate of
+                        the launch location, the time of actual liftoff, and the flight trajectory are fixed.<br><br>
+                        RSOs within a threshold distance are visualized: Observe that the Starlink train is correctly
+                        captured.<br><br>
+                        Green edges and red edges represent going-away and approaching RSOs, respectively.<br><br>
+                        Green and red dots are payloads and debris, respectively. SpaceMap performs LCA in realtime.<br><br>
+                        If SpaceMap’s realtime LCA capability is used together with a trajectory prediction during
+                        propulsion, the LCA result can be automatic feedback to flight control system in order to find
+                        the safest, collision-free-guaranteed trajectory the vehicle.
+                    </p>
+                </div>
+                <div class="contents-box">
+                    <div class="box-title">Launch Conjunction Assessment</div>
+                    <!-- <div class="box-sub-title">I don’t wanna cross a highway with eyes closed!</div> -->
+                    <p>
+						Suppose that you have a vehicle to be launched at a fixed moment at a fixed location. Then, you want to assess the collision-risk of your vehicle against all space objects. If the vehicle follows its planned spatiotemporal trajectory exactly, it might be sufficient to consider the closest approaching object. However, any flying vehicles have spatiotemporal errors and you need to consider more than one approaching objects. We find the k-nearest objects during your flight in real-time, k>0, from which you can define your own measure of the risk. If you have in-house error model, our report will be more helpful. If you are a serious launcher, you may want to automatically feedback this real-time assessment to your flight control system using vehicle’s telemetry data: We call it LCA-in-the-Loop (LitL, See the Whitepaper).
+                    </p>
+                    <a href="/cesium/q1" class="link-exp wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">EXPLORE</a>
+                </div>
+            </li>
+
+            <li class="slide wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <div class="slide-img-con" style="display:none;">
+                    <div class="swiper-container" style="margin-top:280px;">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/img/subpage/img07_01.png" class="border">
+                                <p class="img-info">
+                                    This figure shows the distance of launch vehicle to the closest approach object
+                                    during its flight of, e.g. 45min or 90min. In this figure, each location x on the
+                                    horizontal axis denotes the time-of-launch (ToL) and the corresponding value δ1(x)
+                                    denotes the low-bound of the distance of the closest RSO which is encountered during
+                                    the entire flight duration of the vehicle.<br><br>
+                                    E.g. δ1(100) = 18 means that an RSO may approach to the vehicle as close as 18km
+                                    after the launch at 100sec in the launch window (LW). δ2(x) and δ3(x) denote the
+                                    low-bounds of the distance to the second and to the third closest RSOs,
+                                    respectively.<br><br>
+                                    The horizontal black line segments on Y=0 denote { t | δ1(t) < 20 }: i.e. SpaceMap
+                                    does not recommend to fire a launch during this interval, called blackouts, if the
+                                    launcher wishes to maintain a 20km safety distance.<br><br>
+                                    This case works only on a critical assumption: A launch vehicle exactly follows a
+                                    planned spatiotemporal trajectory from both perspectives of time and location in
+                                    space.<br><br>
+                                    This is a strong assumption and existing commercial programs may be based on it.<br><br>
+                                    SpaceMap finds all δκ(x) curves for higher k, simultaneously and quickly.<br><br>
+                                    Let us know youf k, we will give you the distance functions immediately.
+                                </p>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="/img/subpage/img07_02.png" class="border">
+                                <p class="img-info">
+                                    Launch collision safety (LCS) matrix shows the distribution of the safety scores of
+                                    each moment t of launch (ToL) in launch window using δ1(t), δ2(t), δ3(t), ….
+                                    <br><br>
+                                    To be precise, we define LCS(i,j) = δi(i). <br><br>
+                                    Then, by looking at the scores in the matrix, one can easily find good ToL
+                                    alternatives from the perspectives of not only the predicted closest RSO but also
+                                    the predicted up-to-k nearest RSOs during the entire flight duration.<br><br>
+                                    Let us know your k, we will give you the LCS matrix immediately.
+                                </p>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="/img/subpage/img08_01.png" class="border">
+                                <p class="img-info">
+                                    SpaceMap provides a more useful measure for launchers. The figure shows two curves:
+                                    ω3 and ω10. Here, ω3 is a weighted sum of δ1(t), δ2(t), and δ3(t). In other words,
+                                    ω3(t)= w1δ1(t) + w2δ2(t) + w3δ3(t), w1 + w2 + w3 = 1.<br><br>
+                                    Launcher has a handle to determine different combinations of the weights which will
+                                    produce different curves.<br><br>
+                                    If a launch company has a good estimation of vehicle’s spatiotemporal error of
+                                    launch trajectory, this capability of SpaceMap is very useful.<br><br>
+                                    The blackouts corresponding to the weighted close approach distance graphs can also
+                                    be easily obtained (The red horizontal time intervals on Y=0).<br><br>
+                                    The weighted LCS matrix can also be obtained from ωk(t) curves, k=1,2,…. Let us know
+                                    your k, we will immediately give you all: δk(t), ωk(t), LCS, and LCSw matrices.
+                                </p>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="/img/subpage/img08_02.png" class="border">
+                                <p class="img-info">
+                                    SpaceMap provides a more useful measure for launchers. The figure shows two curves:
+                                    ω3 and ω10. Here, ω3 is a weighted sum of δ1(t), δ2(t), and δ3(t). In other words,
+                                    ω3(t)= w1δ1(t) + w2δ2(t) + w3δ3(t), w1 + w2 + w3 = 1.<br><br>
+                                    Launcher has a handle to determine different combinations of the weights which will
+                                    produce different curves.<br><br>
+                                    If a launch company has a good estimation of vehicle’s spatiotemporal error of
+                                    launch trajectory, this capability of SpaceMap is very useful.<br><br>
+                                    The blackouts corresponding to the weighted close approach distance graphs can also
+                                    be easily obtained (The red horizontal time intervals on Y=0).<br><br>
+                                    The weighted LCS matrix can also be obtained from ωk(t) curves, k=1,2,…. Let us know
+                                    your k, we will immediately give you all: δk(t), ωk(t), LCS, and LCSw matrices.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <span class="swiper-prev"></span>
+                    <span class="swiper-next"></span>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="contents-box">
+                    <div class="box-title">Launch Optimization</div>
+                    <!-- <div class="box-sub-title">I don’t wanna cross a highway with eyes closed!</div> -->
+                    <p>
+						As a launcher, you want to know the optimal time-of-launch (ToL) from conjunction perspective. This is computationally challenging. Suppose you have a trajectory-of-launch (TRoL) and a launch-time-window (LTW) at a fixed launch location. We report you Launch Safety Matrix, which is similar like Maneuver Reward Matrix, from which you can choose the optimal ToL within LTW under a measure you define. Computation is very fast if not real-time even if this is done during launch planning. If you have N TRoL alternatives, we can find the optimal combination of TRoL and ToL (See the Whitepaper). 
+                    </p>
+                    <a href="/cesium/q1" class="link-exp wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">EXPLORE</a>
+                </div>
+            </li>
+        </ul>
+
+    </section>
+</div>
+
+<script>
+    $('.slide-img-con').each(function() {
+        var section_thumb = $(this);
+        var mySwiper = new Swiper($(section_thumb.find('.swiper-container')), {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
+            autoHeight: true,
+            onSlideChangeStart: function() {},
+            onSlideChangeEnd: function() {
+                if ($('.swiper-slide-prev video, .swiper-slide-next video').length) {
+                    $('.swiper-slide-prev video, .swiper-slide-next video').get(0).pause();
+                }
+            },
+            prevButton: $(section_thumb.find('.swiper-prev')),
+            nextButton: $(section_thumb.find('.swiper-next')),
+            pagination: $(section_thumb.find('.swiper-pagination')),
+            paginationClickable: true,
+        });
+    });
+</script>

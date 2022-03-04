@@ -1,0 +1,67 @@
+<div class="subpage">
+
+    <section class="cesium-outout container">
+        <div class="tbl-result">
+            <div class="tableCaption">Result</div>
+            <div class="tblContainer">
+                <div class="div-table">
+                    <div class="header">
+                        <span class="index">Index</span>
+                        <span class="visualize">Visualize</span>
+                        <span class="primary">Primary</span>
+                        <span class="secondary">Secondary</span>
+                        <span class="dca">DCA (km)</span>
+                        <span class="start">Start</span>
+                        <span class="tca">TCA</span>
+                        <span class="end">End</span>
+                    </div>
+                    <div class="body">
+                        <ul>
+                            {{#if locals.isMobile}}
+                                {{#each (Array 5)}}
+                                    <li>
+                                        <label>
+                                            <span class="index" data-label="index">{{sum @index 1}}</span>
+                                            <span class="visualize" data-label="Visualize">
+                                                <input type="radio" name="radio" class="default">
+                                                <span></span>
+                                            </span>
+                                            <span class="primary" data-label="Primary">39227</span>
+                                            <span class="secondary" data-label="Secondary">46495</span>
+                                            <span class="dca" data-label="DCA (km)">3.216</span>
+                                            <span class="start" data-label="Start">-</span>
+                                            <span class="tca" data-label="TCA">Thu, 09 Dec 2021 11:22:26 GMT</span>
+                                            <span class="end" data-label="End">-</span>
+                                        </label>
+                                    </li>
+                                {{/each}}
+                            {{else}}
+                                {{#each (Array 25)}}
+                                    <li>
+                                        <label>
+                                            <span class="index" data-label="index">{{sum @index 1}}</span>
+                                            <span class="visualize" data-label="Visualize">
+                                                <input type="radio" name="radio" class="default">
+                                                <span></span>
+                                            </span>
+                                            <span class="primary" data-label="Primary">39227</span>
+                                            <span class="secondary" data-label="Secondary">46495</span>
+                                            <span class="dca" data-label="DCA (km)">3.216</span>
+                                            <span class="start" data-label="Start">-</span>
+                                            <span class="tca" data-label="TCA">Thu, 09 Dec 2021 11:22:26 GMT</span>
+                                            <span class="end" data-label="End">-</span>
+                                        </label>
+                                    </li>
+                                {{/each}}
+                            {{/if}}
+                        </ul>
+                        {{#if locals.isMobile}}
+                            <div class="more">See More</div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>

@@ -1,0 +1,90 @@
+<form name="" action="" method="post">
+    <div class="form-container">
+        <div class="form-li">
+            <label>Name</label>
+            <input id="name" type="text" name="Name" class="span" placeholder="Type your Name">
+        </div>
+        <div class="form-li">
+            <label>Email</label>
+            <input id="email" type="text" name="Email" class="span"
+                   placeholder="Type your Email Address">
+        </div>
+        <div class="form-li">
+            <label>Subject</label>
+            <input id="subject" type="text" name="Subject" class="span" placeholder="Type your Subject">
+        </div>
+
+        <div class="form-li">
+            <label>Message</label>
+            <textarea id="message" name="" class="span"
+                      placeholder="Type your Subject Message"></textarea>
+        </div>
+        <div class="form-li" style="display:none;">
+            <label class="checkbox-wrap"><input type="checkbox" name="" class="span"
+                                                placeholder="Type your name"><span></span>
+                <p>Check here to indicate that you have read and agree to the<span
+                        class="mainColor ml5"> SpaceMap Privacy Policy</span></p></label>
+            <label class="checkbox-wrap mt20 mtm15"><input type="checkbox" name="" class="span" checked
+                                                           placeholder="Type your name"><span></span>
+                <p>Check here to indicate that you have read and agree to the<span
+                        class="mainColor ml5"> SpaceMap Terms and Conditions</span></p></label>
+        </div>
+    </div>
+    <div class="form-btnSet">
+        <a href="#" class="link-show wow fadeInRight btnSend" data-wow-duration="1s"
+           data-wow-delay="0.1s">SEND</a>
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(function() {
+        const token = $('#token').val();
+        const headers = {'CSRF-Token': token};
+
+        $('.btnSend').click(function(event) {
+            event.preventDefault();
+
+            var $container = $(this).parent().parent();
+            var $name = $container.find('#name');
+            var $email = $container.find('#email');
+            var $subject = $container.find('#subject');
+            var $message = $container.find('#message');
+
+            if (!$name.val()) {
+                alert('Enter your name.');
+                $name.focus();
+                return false;
+            }
+            if (!$email.val()) {
+                alert('Enter your email.');
+                $email.focus();
+                return false;
+            }
+            if (!$subject.val()) {
+                alert('Enter your subject.');
+                $subject.focus();
+                return false;
+            }
+            if (!$message.val()) {
+                alert('Enter your message.');
+                $message.focus();
+                return false;
+            }
+
+            cozyPost({
+                headers: headers,
+                url: '/contact',
+                data: {name: $name.val(), email: $email.val(), subject: $subject.val(), message: $subject.val()},
+                callbacks: function(data) {
+                    if (data && data.id) {
+                        alert('It\'s sent.');
+                        $name.val('');
+                        $email.val('');
+                        $subject.val('');
+                        $message.val('');
+                    }
+                },
+            });
+        });
+    });
+</script>

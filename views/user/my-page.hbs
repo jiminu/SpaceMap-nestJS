@@ -1,0 +1,73 @@
+<div class="subpage">
+
+    <section class="mypage container">
+        <div class="title">
+            <h1>My Page</h1>
+            <sub>You can add and edit below</sub>
+        </div>
+        <div class="mypage-frm">
+            <form name="" method="" action="">
+                <ul>
+                    {{#if isUser }}
+                        <li class="flex">
+                            <div class="flex1">
+                                <div class="label">Username</div>
+                                <div class="liCon">{{user.username}}</div>
+                            </div>
+                        </li>
+                    {{/if}}
+                    <li class="flex">
+                        <div class="flex1">
+                            <div class="label">FirstName</div>
+                            <div class="liCon">
+                                <input id="firstname" type="text" value="{{user.firstname}}" class=""
+                                       placeholder="FirstName">
+                            </div>
+                        </div>
+                        <div class="flex1">
+                            <div class="label">lastName</div>
+                            <div class="liCon">
+                                <input id="lastname" type="text" value="{{user.lastname}}" class=""
+                                       placeholder="lastName">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="label">Affiliation</div>
+                        <div class="liCon">
+                            <input id="affiliation" type="text" value="{{user.affiliation}}" class=""
+                                   placeholder="Affiliation">
+                        </div>
+                    </li>
+
+                    <li class="flex">
+                        <div class="flex1">
+                            <div class="label">Email Address</div>
+                            <div class="liCon">{{user.email}}</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label">Password</div>
+                        <div class="liCon">
+                            <input id="password" type="password" value="" class="" placeholder="Password">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label">Confirm Password</div>
+                        <div class="liCon">
+                            <!--<a href="#" class="inline-btn">CONFIRM</a>-->
+                            <input id="password-confirm" type="password" value="" class=""
+                                   placeholder="Confirm Password">
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="btnSet">
+                    <a href="#" class="save btnUserUpdate">SAVE</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</div>

@@ -1,0 +1,131 @@
+<div class="subpage">
+
+    <div class="sub-top"
+         style="background-image:url('/img/subpage/top/sub-top-ces{{#if locals.isMobile}}-mobile{{/if}}.png')">
+        <div class="txtCon">
+            <div class="h1 wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.1s">Web Service</div>
+            <p class="wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.3s">
+                <!-- Lorem Ipsum is simply dummy text of the printing<br>
+                and typesetting industry.  -->
+            </p>
+        </div>
+    </div>
+
+    <section class="secConainer">
+        <div class="sub-title">Query</div>
+        <ul class="ul-exp">
+            <li class="disabled wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
+                <div class="inner">
+                    Conjunction Assessment : <br><span style="font-style: italic;">Free of Charge</span>
+                    {{#if locals.user}}
+                        <a href="/cesium/q1" class="link-exp">EXPLORE</a>
+                    {{else}}
+                        <a href="#pop-login" class="link-exp popup-inline">EXPLORE</a>
+                    {{/if}}
+                </div>
+            </li>
+            <li class="disabled wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <div class="inner">
+                    Maneuver Optimization
+                    {{#if locals.user}}
+                        <a href="/cesium/q2" class="link-exp">EXPLORE</a>
+                    {{else}}
+                        <a href="#pop-login" class="link-exp popup-inline">EXPLORE</a>
+                    {{/if}}
+                </div>
+            </li>
+            <li class="disabled wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                <div class="inner">
+                    Trespasser Catcher
+                    {{#if locals.user}}
+                        <a href="/cesium/q3" class="link-exp">EXPLORE</a>
+                    {{else}}
+                        <a href="#pop-login" class="link-exp popup-inline">EXPLORE</a>
+                    {{/if}}
+                </div>
+            </li>
+            <li class="disabled wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="inner">
+                    Launch Scheduling
+                    {{#if locals.user}}
+                        <a href="/cesium/q4" class="link-exp">EXPLORE</a>
+                    {{else}}
+                        <a href="#pop-login" class="link-exp popup-inline">EXPLORE</a>
+                    {{/if}}
+                </div>
+            </li>
+            <li class="disabled wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <div class="inner">
+                    Data Transmission Optimization
+                    {{#if locals.user}}
+                        <a href="/cesium/q5" class="link-exp">EXPLORE</a>
+                    {{else}}
+                        <a href="#pop-login" class="link-exp popup-inline">EXPLORE</a>
+                    {{/if}}
+                </div>
+            </li>
+            <li class="disabled wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                <div class="inner">
+                    Watcher Catcher
+                    {{#if locals.user}}
+                        <a href="/cesium/q-star" class="link-exp">EXPLORE</a>
+                    {{else}}
+                        <a href="#pop-login" class="link-exp popup-inline">EXPLORE</a>
+                    {{/if}}
+                </div>
+            </li>
+        </ul>
+
+        <div class="sub-title">Query Result</div>
+        <ul class="ul-exp">
+            <li class="disabled wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="inner">
+                    Output Archive
+                    {{#if locals.user}}
+                        <a href="/cesium/q1" class="link-exp">EXPLORE</a>
+                    {{else}}
+                        <a href="#pop-login" class="link-exp popup-inline">EXPLORE</a>
+                    {{/if}}
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        const token = $('#token').val();
+        const headers = {'CSRF-Token': token};
+
+        // $('.link-api').click(function(event) {
+        //     event.preventDefault();
+        //     checkAuth($(this).attr('href'), '#pop-login', headers);
+        // });
+
+        $('.ul-exp').on('mouseover', 'li', function() {
+            $(this).removeClass('disabled');
+        }).on('mouseout', 'li', function() {
+            $(this).addClass('disabled');
+        });
+    });
+
+    $('.slide-img-con').each(function() {
+        var section_thumb = $(this);
+        var mySwiper = new Swiper($(section_thumb.find('.swiper-container')), {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
+            autoHeight: true,
+            onSlideChangeStart: function() {},
+            onSlideChangeEnd: function() {
+                if ($('.swiper-slide-prev video, .swiper-slide-next video').length) {
+                    $('.swiper-slide-prev video, .swiper-slide-next video').get(0).pause();
+                }
+            },
+            prevButton: $(section_thumb.find('.swiper-prev')),
+            nextButton: $(section_thumb.find('.swiper-next')),
+            pagination: $(section_thumb.find('.swiper-pagination')),
+            paginationClickable: true,
+        });
+    });
+</script>
