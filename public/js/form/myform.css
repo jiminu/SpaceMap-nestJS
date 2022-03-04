@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+
+
+/*──────────────── Radio & Checkbox (mobile)────────────────*/
+input[type="checkbox"], input[type="radio"] {display:none;}
+input[type="checkbox"] + span, input[type="radio"] + span{cursor:pointer;display:inline-flex;align-items:center;}
+
+input[type="checkbox"] + span:before{content:'\e936';font-family:'intaefont';font-size:9px;font-weight:normal;
+	width:16px;height:16px;border-radius:2px;text-align:center;display:inline-flex;align-items:center;justify-content:center;padding-top:1px;margin-right:10px;background:rgba(255,255,255,0.3);color:rgba(255,255,255,0);}
+input[type="checkbox"]:hover + span:before{background:rgba(255,255,255,0.4);color:rgba(0,0,0,0.7);font-weight:600;}
+input[type="checkbox"]:checked + span:before{color:#12161F;background:var(--mainColor);border:0;font-weight:600;}
+
+input[type="radio"] + span{position:relative;width:16px;height:16px;border-radius:50%;text-align:center;color:rgba(0,0,0,0.0);background:transparent;transition:all .1s ease-in-out;
+	display:inline-flex;align-items:center;justify-content:center;border:1px solid #FFB808;}
+input[type="radio"] + span:before{content:'';display:block;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0)}
+input[type="radio"]:hover + span:before{background:rgba(255,255,255,0.2)}
+input[type="radio"]:checked + span:before{background:#FFB808}
+
+
+input[type="radio"].red:checked + span:before{background:#EF3434;border-color:#EF3434;}
+input[type="radio"].orange:checked + span:before{background:#F66700;border-color:#F66700;}
+input[type="radio"].blue:checked + span:before{background:#1428A0;border-color:#1428A0;}

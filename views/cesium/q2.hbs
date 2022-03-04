@@ -1,0 +1,121 @@
+<div class="subpage">
+
+    <div id="cesium-top">
+        <div id="cesium_api">
+            <!-- API 불러올 영역 -->
+        </div>
+
+
+        <div class="cesium-search">
+            <div class="title"><label>[Q2]</label>Maneuver Optimization</div>
+            <div class="inner">
+                <span class="toggle-btn"></span>
+                <div class="subject"><span>About Q2</span></div>
+                <div class="toggle-container">
+                    <p>reports the "Count" RSO pairs which define the distance shorter than "Threshold" from all
+                        possible pairs.</p>
+
+                    <div class="ces-frm">
+                        <form name="" method="" action="">
+                            <ul>
+                                <li>
+                                    <label>Threshold (km)</label>
+                                    <div class="frmCon"><input type="text" value="0" class="" placeholder=""></div>
+                                </li>
+                            </ul>
+                            <p>Threshold < 100km Otherwise, contact us.</p>
+                            <div class="frm-btnSet">
+                                <button type="button" class="submit">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cesium-outout">
+        <div class="tbl-result">
+            <div class="tbl-top">
+                <label class="checkbox-wrap">
+                    <input type="checkbox" name="output_show" class="output_show" checked><span></span>
+                    <p>show payloads Output table printed under graphic window.</p>
+                </label>
+            </div>
+            <div class="tableCaption">Result</div>
+            <div class="tblContainer">
+                <div class="div-table">
+                    <div class="header">
+                        <span class="index">Index</span>
+                        <span class="visualize">Visualize</span>
+                        <span class="primary">Primary</span>
+                        <span class="secondary">Secondary</span>
+                        <span class="dca">DCA (km)</span>
+                        <span class="start">Start</span>
+                        <span class="tca">TCA</span>
+                        <span class="end">End</span>
+                    </div>
+                    <div class="body">
+                        <ul>
+                            {{#if locals.isMobile}}
+                                {{#each (Array 5)}}
+                                    <li>
+                                        <label>
+                                            <span class="index" data-label="index">{{sum @index 1}}</span>
+                                            <span class="visualize" data-label="Visualize">
+                                                <input type="radio" name="radio" class="default">
+                                                <span></span>
+                                            </span>
+                                            <span class="primary" data-label="Primary">39227</span>
+                                            <span class="secondary" data-label="Secondary">46495</span>
+                                            <span class="dca" data-label="DCA (km)">3.216</span>
+                                            <span class="start" data-label="Start">-</span>
+                                            <span class="tca" data-label="TCA">Thu, 09 Dec 2021 11:22:26 GMT</span>
+                                            <span class="end" data-label="End">-</span>
+                                        </label>
+                                    </li>
+                                {{/each}}
+                            {{else}}
+                                {{#each (Array 25)}}
+                                    <li>
+                                        <label>
+                                            <span class="index" data-label="index">{{sum @index 1}}</span>
+                                            <span class="visualize" data-label="Visualize">
+                                                <input type="radio" name="radio" class="default">
+                                                <span></span>
+                                            </span>
+                                            <span class="primary" data-label="Primary">39227</span>
+                                            <span class="secondary" data-label="Secondary">46495</span>
+                                            <span class="dca" data-label="DCA (km)">3.216</span>
+                                            <span class="start" data-label="Start">-</span>
+                                            <span class="tca" data-label="TCA">Thu, 09 Dec 2021 11:22:26 GMT</span>
+                                            <span class="end" data-label="End">-</span>
+                                        </label>
+                                    </li>
+                                {{/each}}
+                            {{/if}}
+                        </ul>
+                        {{#if locals.isMobile}}
+                            <div class="more">See More</div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<script>
+    $('.tblResult .output_show').click(function() {
+        var checked = $(this).is(':checked'),
+                tblContainer = $('.tblResult .tblContainer');
+
+        if (checked) {
+            $(tblContainer).slideDown(700, 'easeInOutExpo');
+        } else {
+            $(tblContainer).slideUp(700, 'easeInOutExpo');
+        }
+    });
+
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+    <link rel="shortcut icon" href="/cozyfex/img/favorite/favorite.ico">
+    <link rel="stylesheet" href="/cozyfex/css/root.css">
+    <link rel="stylesheet" href="/cozyfex/js/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="/cozyfex/js/form/datepicker/datepicker.css">
+    <link rel="stylesheet" href="/cozyfex/js/form/myform.css">
+    <link rel="stylesheet" href="/cozyfex/js/form/bootstrap-select/bootstrap-select.css">
+    <link rel="stylesheet" href="/cozyfex/css/styleDefault.css">
+    <link rel="stylesheet" href="/cozyfex/css/style.css">
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/animation/easing.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/magnific-popup/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/dropdown.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/form/bootstrap-select/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/form/bootstrap-select/bootstrap-select.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/form/datepicker/datepicker.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/form/myform.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/myScript.js"></script>
+    <script type="text/javascript" src="/cozyfex/js/jquery.form.min.js"></script>
+    <script type="text/javascript">
+        $('#main, #view, #wrtie, #background').parent().addClass('bg')
+        //location text넣기
+        $(document).ready(function () {
+            var opener_name = $('#header #nav_ul li.open > a').text(),
+                    page_name = $('#header #nav_ul li.active').text() ? $('#header #nav_ul li.active').text() : ''
+            if (typeof opener_name !== typeof undefined && opener_name !== '') {
+                $('#topContainer .loaction').append('<span>' + opener_name + '</span>')
+            }
+            $('#topContainer .loaction').append('<span>' + page_name + '</span>')
+        })
+        $(function () {
+            $('#messages > input:hidden').each(function () {
+                var message = $(this).val()
+                alert(message)
+            })
+        })
+    </script>
+</head>
+<body>
+<header id="header">
+    <div class="header_container">
+        <!--<div class="logo bg"><a href="./index.php">마이 <span>관리자</span></a></div> (텍스트만..)-->
+        <div class="logo">
+            <a href="/admin">관리자</a>
+        </div>
+        <nav id="nav">
+            <ul id="nav_ul">
+                <li class="{{#if (isEqual menu 'contact-us')}}active{{/if}}">
+                    <a href="/admin/contact-us" class="mont">Contact Us</a>
+                </li>
+                <li class="{{#if (isEqual menu 'resource')}}active{{/if}}">
+                    <a href="/admin/resource" class="mont">Resource</a>
+                </li>
+                <li class="{{#if (isEqual menu 'user')}}active{{/if}}">
+                    <a href="/admin/user" class="mont">User</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="wrapper">
+
+    <div id="topContainer">
+        <div class="location"></div>
+        <ul class="gbMenu">
+            <li>
+                <a href="/admin/change-password" class="chagne-password">Chagne Password</a>
+            </li>
+            <li>
+                <a href="/admin/logout" class="logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+
+    {{{body}}}
+
+    <footer id="footer">
+        <div class="footer_container">
+            <span class="copyrights">&copy;2021 ADMIN. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+</div>
+<!-- //#wrapper -->
+
+{{>errors}}
+
+</body>
+</html>

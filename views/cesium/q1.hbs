@@ -1,0 +1,155 @@
+<div class="subpage">
+
+    <div id="cesium-top">
+        <div id="cesium_api">
+            <!-- API 불러올 영역 -->
+        </div>
+
+        <div class="cesium-search">
+            <div class="title"><label>Conjunction Assessment</label></div>
+            <div class="inner">
+                <span class="toggle-btn"></span>
+                <div class="subject"><span>About</span></div>
+                <div class="toggle-container">
+                    <p>Reports the RSOs within the "Threshold" distance from the "NORAD ID" RSO.</p>
+
+                    <div class="ces-frm">
+                        <form name="" method="" action="">
+                            <ul>
+                                <li>
+                                    <label>NORAD ID</label>
+                                    <div class="frmCon">
+                                        <input type="text" class="noradID" id="noradID" placeholder="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <label>Threshold (km)</label>
+                                    <div class="frmCon">
+                                        <input type="text" class="threshold" id="threshold" placeholder="">
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="frm-btnSet">
+                                <button type="button" class="submit" onclick="conjunctionAssessment()">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cesium-outout">
+        <div class="tbl-result" id="tbl-result" style="display: none;">
+            {{!-- <div class="tbl-top">
+                <label class="checkbox-wrap">
+                    <input type="checkbox" name="output_show" class="output_show" checked>
+                    <span></span>
+                    <p>payloads Output table printed under graphic window.</p>
+                </label>
+            </div> --}}
+            <div class="tableCaption">Result</div>
+            <div class="tblContainer">
+                <div class="div-table">
+                    <div class="header">
+                        <span class="index">Index</span>
+                        <span class="visualize">Visualize</span>
+                        <span class="primary">Primary</span>
+                        <span class="secondary">Secondary</span>
+                        <span class="dca">DCA (km)</span>
+                        <span class="start">Start</span>
+                        <span class="tca">TCA</span>
+                        <span class="end">End</span>
+                        <span class="probability">Probability</span>
+                    </div>
+                    <div class="body" id="body">
+                    </div>
+                    {{#if locals.isMobile}}
+                    <div class="more">See More</div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    $('.tbl-result .output_show').click(function () {
+        var checked = $(this).is(':checked'),
+            tblContainer = $('.tbl-result .tblContainer');
+        if (checked) {
+            $(tblContainer).slideDown(700, 'easeInOutExpo');
+        } else {
+            $(tblContainer).slideUp(700, 'easeInOutExpo');
+        }
+    });
+    window.onload = async function () {
+        await viewerInitialize();
+    }
+    function tableClear() {
+        let tblResult = document.getElementById('tbl-result');
+        tblResult.style.display = 'none';
+        let body = document.getElementById('body');
+        body.innerHTML = "";
+    }
+    async function conjunctionAssessment() {
+        alert('submit');
+        tableClear();
+        let threshold = document.getElementById('threshold').value;
+        let noradID = document.getElementById('noradID').value;
+        let tblResult = document.getElementById('tbl-result');
+        tblResult.style.display = 'block';
+        let body = document.getElementById('body');
+        let ppdbs = await axios.get('/ppdb/ppdbWithinThreshold', {
+            params: {
+                threshold: threshold,
+                noradID: noradID
+            },
+        });
+        console.log(ppdbs);
+        let bodyHtml = "";
+        bodyHtml = "<ul>";
+        ppdbs.data.forEach(function (ppdb, i) {
+            let primaryID;
+            let secondaryID;
+            if (ppdb.primaryID == noradID) {
+                primaryID = ppdb.primaryID;
+                secondaryID = ppdb.secondaryID;
+            }
+            else {
+                primaryID = ppdb.secondaryID;
+                secondaryID = ppdb.primaryID;
+            }
+            let TCATime = new Date(Date.UTC(ppdb.year,
+                ppdb.mon - 1,
+                ppdb.day,
+                ppdb.hour,
+                ppdb.min,
+                ppdb.sec));
+            let startTime = new Date(TCATime.getTime() - (ppdb.TCATarget - ppdb.TCAStart) * 1000);
+            let endTime = new Date(TCATime.getTime() + (ppdb.TCAEnd - ppdb.TCATarget) * 1000);
+            bodyHtml += "<li>";
+            bodyHtml += "<label>";
+            bodyHtml += `<span class="index" data-label="index">${i + 1}</span>`;
+            bodyHtml += `<span class="visualize" data-label="Visualize">`;
+            bodyHtml += `    <input type="radio" name="radio" class="default" id = ${ppdb._id} value = ${String(primaryID).concat(',', String(secondaryID)).concat(',', String(ppdb.TCATarget))} onclick="assessConjunctions_impl(this.id, this.value)"">`;
+            bodyHtml += `    <span></span>`;
+            bodyHtml += `</span>`;
+            bodyHtml += `<span class="primary" data-label="Primary">${primaryID}</span>`;
+            bodyHtml += `<span class="secondary" data-label="Secondary">${secondaryID}</span>`;
+            bodyHtml += `<span class="dca" data-label="DCA (km)">${ppdb.minDistance}</span>`;
+            bodyHtml += `<span class="start" data-label="Start">${startTime.toUTCString()}</span>`;
+            bodyHtml += `<span class="tca" data-label="TCA">${TCATime.toUTCString()}</span>`;
+            bodyHtml += `<span class="end" data-label="End">${endTime.toUTCString()}</span>`;
+            bodyHtml += `<span class="probability" data-label="Probability">${ppdb.probability}</span>`;
+            bodyHtml += "</label>";
+            bodyHtml += "</li>";
+        })
+        bodyHtml += "</ul>";
+        body.innerHTML = bodyHtml;
+    }
+    function assessConjunctions_impl(id, value) {
+        dataSourcesClearWithoutTLE();
+        assessConjunctions(id, value);
+    }
+</script>

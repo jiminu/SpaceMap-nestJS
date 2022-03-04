@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10;"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi">
+    <title>SpaceMap</title>
+    <link rel="apple-touch-icon" href="/img/favorite/favorite_mobile.png"/>
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css">
+    <link href="/css/iconfont/iconfont-spacemap/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="/js/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/js/swiper/swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/root.css" rel="stylesheet" type="text/css">
+    <link href="/css/spinkit/spinkit.min.css" rel="stylesheet" type="text/css">
+    {{#if locals.isMobile}}
+        <link href="/js/form/myform_mobile.css" rel="stylesheet" type="text/css">
+        <link href="/css/mobile.css" rel="stylesheet" type="text/css">
+    {{else}}
+        <link href="/js/form/myform.css" rel="stylesheet" type="text/css">
+        <link href="/css/style.css?v=12" rel="stylesheet" type="text/css">
+    {{/if}}
+    <!--<script src='/js/jquery.min.js' type='text/javascript'></script>-->
+    <script src="/js/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="/js/scrollIt/scrollIt.js" type="text/javascript"></script>
+    <script src="/js/wow/wow.js"></script>
+    <script src="/js/easing.js"></script>
+    <script src="/js/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="/js/swiper/swiper.min.js"></script>
+    <script src="/js/form/myform.js"></script>
+    <script src="/js/myScript.js"></script>
+    {{#if locals.isMobile}}
+        <script src="/js/dropdown.js" type="text/javascript"></script>
+        <script src="/js/myScript_mobile.js"></script>
+    {{else}}
+        <script src="/js/myScript_pc.js"></script>
+    {{/if}}
+    <script src="/js/service.js"></script>
+
+    <style type="text/css">
+        .mfp-wrap.mfp-close-btn-in button.mfp-close:before {
+            content: '\e007';
+        }
+
+        .mfp-wrap.mfp-close-btn-in button.mfp-close {
+            top: 60px;
+        }
+
+            {{#if locals.isDesktop}}
+            #hd-nav-container .closer {
+                top: 30px;
+                right: 80px;
+            }
+            {{else}}
+            #hd-nav-container .closer {
+                top: 20px;
+                right: 20px;
+            }
+            {{/if}}
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            const token = $('#token').val()
+            const headers = { 'CSRF-Token': token }
+
+            $('.btnFindUsername').click(function (event) {
+                event.preventDefault()
+                var $container = $(this).parent().parent()
+                var $firstname = $container.find('#firstname')
+                var $lastname = $container.find('#lastname')
+                var $email = $container.find('#email')
+
+                if (!$email.val()) {
+                    alert('Enter email')
+                    $email.focus()
+                    return false
+                }
+                if (!$firstname.val()) {
+                    alert('Enter firstname')
+                    $firstname.focus()
+                    return false
+                }
+                if (!$lastname.val()) {
+                    alert('Enter lastname')
+                    $lastname.focus()
+                    return false
+                }
+
+                cozyPost({
+                    headers: headers,
+                    url: '/user/find/username',
+                    data: { email: $email.val(), firstname: $firstname.val(), lastname: $lastname.val() },
+                    callbacks: function (data) {
+                        if (data.result) {
+                            alert('Check your email')
+                            location.reload()
+                        }
+                    },
+                })
+            })
+
+            $('.btnFindPassword').click(function (event) {
+                event.preventDefault()
+                var $container = $(this).parent().parent()
+                var $username = $container.find('#username')
+                var $firstname = $container.find('#firstname')
+                var $lastname = $container.find('#lastname')
+                var $email = $container.find('#email')
+
+                if (!$username.val()) {
+                    alert('Enter username')
+                    $username.focus()
+                    return false
+                }
+                if (!$email.val()) {
+                    alert('Enter email')
+                    $email.focus()
+                    return false
+                }
+                if (!$firstname.val()) {
+                    alert('Enter firstname')
+                    $firstname.focus()
+                    return false
+                }
+                if (!$lastname.val()) {
+                    alert('Enter lastname')
+                    $lastname.focus()
+                    return false
+                }
+
+                cozyPost({
+                    headers: headers,
+                    url: '/user/find/password',
+                    data: {
+                        username: $username.val(),
+                        email: $email.val(),
+                        firstname: $firstname.val(),
+                        lastname: $lastname.val(),
+                    },
+                    callbacks: function (data) {
+                        if (data.result) {
+                            alert('Check your email')
+                            location.reload()
+                        }
+                    },
+                })
+            })
+
+            $('.btnSignUp').click(function (event) {
+                event.preventDefault()
+
+                var $container = $(this).parent().parent()
+                var $firstname = $container.find('#firstname')
+                var $lastname = $container.find('#lastname')
+                var $affiliation = $container.find('#affiliation')
+                var $username = $container.find('#username')
+                var $email = $container.find('#email')
+                var $password = $container.find('#password')
+                var $passwordConfirm = $container.find('#password-confirm')
+
+                if (!$firstname.val()) {
+                    alert('Enter firstname')
+                    $firstname.focus()
+                    return false
+                }
+                if (!$lastname.val()) {
+                    alert('Enter lastname')
+                    $lastname.focus()
+                    return false
+                }
+                if (!$affiliation.val()) {
+                    alert('Enter affiliation')
+                    $affiliation.focus()
+                    return false
+                }
+                if (!$username.val()) {
+                    alert('Enter username')
+                    $username.focus()
+                    return false
+                }
+                if (!$email.val()) {
+                    alert('Enter email')
+                    $email.focus()
+                    return false
+                }
+                if (!$password.val()) {
+                    alert('Enter password')
+                    $password.focus()
+                    return false
+                }
+                if (!$passwordConfirm.val()) {
+                    alert('Enter password confirm')
+                    $passwordConfirm.focus()
+                    return false
+                }
+                if ($password.val() !== $passwordConfirm.val()) {
+                    alert('Password and Confirm Password do not match')
+                    return false
+                }
+
+                var data = {
+                    firstname: $firstname.val(),
+                    lastname: $lastname.val(),
+                    affiliation: $affiliation.val(),
+                    username: $username.val(),
+                    email: $email.val(),
+                    password: $password.val(),
+                    passwordConfirm: $passwordConfirm.val(),
+                }
+
+                cozyPost({
+                    headers: headers,
+                    url: '/user/create', data, callbacks: function (data) {
+                        if (data.result) {
+                            alert('Sign up is complete')
+                            checkAuth('/cesium', '#pop-login', headers)
+                        } else {
+                            alert(data.error)
+                            return false
+                        }
+                    },
+                })
+            })
+
+            $('.btnUserUpdate').click(function (event) {
+                event.preventDefault()
+
+                var $container = $(this).parent().parent()
+                var $firstname = $container.find('#firstname')
+                var $lastname = $container.find('#lastname')
+                var $affiliation = $container.find('#affiliation')
+                var $password = $container.find('#password')
+                var $passwordConfirm = $container.find('#password-confirm')
+
+                if (!$firstname.val()) {
+                    alert('Enter firstname')
+                    $firstname.focus()
+                    return false
+                }
+                if (!$lastname.val()) {
+                    alert('Enter lastname')
+                    $lastname.focus()
+                    return false
+                }
+                if (!$affiliation.val()) {
+                    alert('Enter affiliation')
+                    $affiliation.focus()
+                    return false
+                }
+                if ($password.val()) {
+                    if (!$password.val()) {
+                        alert('Enter password')
+                        $password.focus()
+                        return false
+                    }
+                    if (!$passwordConfirm.val()) {
+                        alert('Enter password confirm')
+                        $passwordConfirm.focus()
+                        return false
+                    }
+                    if ($password.val() !== $passwordConfirm.val()) {
+                        alert('Password and Confirm Password do not match')
+                        return false
+                    }
+                }
+
+                var data = {
+                    firstname: $firstname.val(),
+                    lastname: $lastname.val(),
+                    affiliation: $affiliation.val(),
+                    password: $password.val() ?? '',
+                    passwordConfirm: $passwordConfirm.val() ?? '',
+                }
+
+                cozyPost({
+                    headers: headers,
+                    url: '/user/update', data, callbacks: function (data) {
+                        if (data.result) {
+                            alert('Update is complete')
+                            location.reload()
+                        } else {
+                            alert(data.error)
+                            return false
+                        }
+                    },
+                })
+            })
+
+            $('.popLogin').click(function (event) {
+                event.preventDefault()
+                cozySetCookie('login-page', (location.pathname + location.search), 10)
+                $.magnificPopup.open({
+                    items: {
+                        src: '#pop-login',
+                    },
+                    type: 'inline',
+                })
+            })
+
+            $('.btnLogin').click(function () {
+                var $username = $('#username')
+                var $password = $('#password')
+
+                if (!$username.val()) {
+                    alert('Enter username')
+                    $username.focus()
+                    return false
+                }
+                if (!$password.val()) {
+                    alert('Enter password')
+                    $password.focus()
+                    return false
+                }
+
+                cozyPost({
+                    headers: headers,
+                    url: '/user/login',
+                    data: { username: $username.val(), password: $password.val() },
+                    callbacks: function (data) {
+                        if (data.result) {
+                            location.href = cozyGetCookie('login-page')
+                        } else {
+                            alert(data.error)
+                            return false
+                        }
+                    },
+                })
+            })
+
+            $('.btnLoginOut').click(function () {
+                location.href = '/user/logout'
+            })
+        })
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVQ0X4B0WF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || []
+
+        function gtag () {dataLayer.push(arguments)}
+
+        gtag('js', new Date())
+
+        gtag('config', 'G-GVQ0X4B0WF')
+    </script>
+
+</head>
+
+
+<body>
+
+
+<div id="page-wrapper">
+
+    {{#if header}}
+        <header id="header" class="{{headerClass}}">
+            <a href="/" class="logo hd-logo" alt="spacemap">SPACEMAP</a>
+
+            {{#if locals.isDesktop}}
+                <a href="/cesium" class="btnAPI">Web Service</a>
+                {{#if locals.user }}
+                    <div class="btn-member">
+                        <span class="opener">{{locals.user.firstname}} {{locals.user.lastname}}</span>
+                        <ul class="inner">
+                            <li><a href="/user/my-page">My Page</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                {{else}}
+                    <a href="#" class="btnCES outer popLogin">LOGIN</a>
+                {{/if}}
+            {{/if}}
+
+            {{#if locals.isMobile}}
+                <span class="openner fs0">메뉴열기<span></span><span></span><span></span></span>
+            {{/if}}
+
+            <div id="hd-nav-container">
+                {{#if locals.isMobile}}
+                    <span class="closer fs0">메뉴닫기</span>
+                    <div class="top-btn">
+                        {{#if locals.user }}
+                            <div class="btn-member">
+                                <span class="opener">{{locals.user.firstname}} {{locals.user.lastname}}</span>
+                                <ul class="inner">
+                                    <li><a href="/user/my-page">My Page</a></li>
+                                    <li><a href="/user/logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        {{else}}
+                            <a href="#" class="btnCES outer popLogin">LOGIN</a>
+                        {{/if}}
+                    </div>
+                {{/if}}
+                <div class="inner">
+                    {{#if locals.isMobile}}
+
+                        <img src="/img/nav-logo.png">
+                        <div class="subCopy">THE Satellite's Guide to the Galaxy</div>
+                    {{/if}}
+                    <ul id="nav">
+                        {{#if locals.isMobile}}
+                            <li><a href="/" class="dep1">Home</a></li>
+                        {{/if}}
+                        <li class="{{#if (isEqual title 'services')}}active{{/if}}">
+                            <a href="/service/search" class="dep1">Services</a>
+                            <ul class="subnav_ul">
+                                <li class="{{#if (isEqual title 'Search Services')}}active{{/if}}"><a
+                                        href="/service/search">Search Services</a></li>
+                                <li class="{{#if (isEqual title 'Optimization Services')}}active{{/if}}"><a
+                                        href="/service/optimization">Optimization Services</a></li>
+                                <li class="{{#if (isEqual title 'Launch Services')}}active{{/if}}"><a
+                                        href="/service/launch">Launch Services</a></li>
+                                <li class="{{#if (isEqual title 'Data Analytics Services')}}active{{/if}}"><a
+                                        href="/service/analytics">Data Analytics Services</a></li>
+                                <!-- <li><a href="/?section=Services">Data Base Services</a></li> -->
+                            </ul>
+                        </li>
+                        <li class="{{#if (isEqual title 'products')}}active{{/if}}">
+                            <a href="/#products" class="dep1">Products</a>
+                            <!--<ul class="subnav_ul">
+                                <li><a href="#">Web Application</a></li>
+                                <li><a href="#">Intranet Development</a></li>
+                                <li><a href="#">Standalone Programs</a></li>
+                                <li><a href="#">Licensing Libraries</a></li>
+                            </ul>-->
+                        </li>
+                        <!--<li><a href="/?section=Customers" class="dep1">Customers</a></li>-->
+                        <li class="{{#if (isEqual title 'resources')}}active{{/if}}{{#if
+                                (isEqual title 'media')}}active{{/if}}">
+                            <a href="/resource/document" class="dep1">Resources</a>
+                            <ul class="subnav_ul">
+                                <li class="{{#if (isEqual title 'document')}}active{{/if}}">
+                                    <a href="/resource/document">Documents</a>
+                                </li>
+                                <li class="{{#if (isEqual title 'media')}}active{{/if}}">
+                                    <a href="/resource/media">Media</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="{{#if (isEqual title 'company')}}active{{/if}}">
+                            <a href="/company" class="dep1">Company</a>
+                            <!--<ul class="subnav_ul">
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Team</a></li>
+                                <li><a href="#">History</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subnav_bg"></div>
+        </header>
+        <div class="headerSpace"></div>
+    {{/if}}
+
+    <div id="wrapper">
+
+        {{{body}}}
+
+        {{#if footer}}
+            <footer>
+                <div class="ft-inner">
+                    <ul class="ft-sns-link">
+                        <li><a href="#" class="linkedin" target="_blank">linkedin</a></li>
+                        <li><a href="#" class="facebook" target="_blank">facebook</a></li>
+                        <li><a href="#" class="twitter" target="_blank">twitter</a></li>
+                        <li><a href="#" class="youtube" target="_blank">youtube</a></li>
+                    </ul>
+                    <p class="email">contact@spacemap42.com</p>
+                    <p class="copyright">© 2021 SpaceMap Inc. All Rights Reserved.</p>
+                    <ul class="ft-menu">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+            </footer>
+        {{/if}}
+    </div>
+</div>
+
+
+<!--<script src="/js/bodymovin/lottie.min.js"></script>-->
+<!-- https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js -->
+<script src="/js/bodymovin/lottie.min.js"></script>
+<script src="/js/bodymovin/svgAnimationAbsolute.js"></script>
+
+{{!-- CESIUM_API --}}
+<link href="https://cesium.com/downloads/cesiumjs/releases/1.87.1/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+<script src="https://cesium.com/downloads/cesiumjs/releases/1.87.1/Build/Cesium/Cesium.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/satellite.js/4.0.0/satellite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/js/cesium/timeWindow.js"></script>
+<script src="/js/cesium/spaceMapViewer.js"></script>
+{{!-- <script src="/js/cesium/spaceMapResultViewer.js"></script> --}}
+
+{{!-- CESIUM_API --}}
+
+<script>
+    wow = new WOW({
+        animateClass: 'animated',
+        offset: 100,
+        live: true,
+        callback: wowCallback,
+        /*callback:function(box) {
+        }*/
+    })
+    wow.init()
+</script>
+
+<input type="hidden" id="token" value="{{locals.csrfToken}}">
+<div id="cozyLoading"></div>
+
+{{>popFindUsername}}
+{{>popFindPassword}}
+{{>popJoin}}
+{{>popLogin}}
+
+</body>
+</html>

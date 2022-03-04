@@ -1,0 +1,137 @@
+<div class="subpage">
+
+    <div id="cesium-top">
+        <div id="cesium_api">
+            <!-- API 불러올 영역 -->
+        </div>
+
+
+        <div class="cesium-search">
+            <div class="title"><label>[Q4]</label>Launch Scheduling</div>
+            <div class="inner">
+                <span class="toggle-btn"></span>
+                <div class="subject"><span>About Q4</span></div>
+                <div class="toggle-container">
+                    <p>reports all RSOs within a "Threshold" distance from a launch
+                        vehicle which follows a "Launch trajectory" uploaded from a file
+                        that can be selected using the button. For an example of a
+                        launch trajectory file, see "Sample Launch Trajectory".</p>
+
+                    <div class="ces-frm">
+                        <form name="" method="" action="">
+                            <ul class="ces-frm-ul">
+                                <li><span class="color-yellow">Parameter</span></li>
+                                <li>
+                                    <label>Launch trajectory</label>
+                                    <div class="frmCon"><input type="file" value="" class=""></div>
+                                </li>
+                                <li>
+                                    <label>Threshold (km)</label>
+                                    <div class="frmCon"><input type="text" value="500" class="" placeholder=""></div>
+                                </li>
+                            </ul>
+
+                            <div class="frm-btnSet">
+                                <button type="button" class="submit">submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="mt15">
+                        <span class="color-yellow">Sample Launch Trajectory</span> <a href="#" class="down-link"></a>
+                    </div>
+                    <p>(Trajectory for 1 hour. About 90 seconds computation used for each. RSOs within 500km identified.
+                        Red link for approaching and blue for receding. Trajectory currently given as a set of waypoints
+                        with location and time.)</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cesium-outout">
+        <div class="tbl-result">
+            <div class="tbl-top">
+                <label class="checkbox-wrap">
+                    <input type="checkbox" name="output_show" class="output_show" checked>
+                    <span></span>
+                    <p>payloads Output table printed under graphic window.</p>
+                </label>
+            </div>
+            <div class="tableCaption">Result</div>
+            <div class="tblContainer">
+                <div class="div-table">
+                    <div class="header">
+                        <span class="index">Index</span>
+                        <span class="visualize">Visualize</span>
+                        <span class="primary">Primary</span>
+                        <span class="secondary">Secondary</span>
+                        <span class="dca">DCA (km)</span>
+                        <span class="start">Start</span>
+                        <span class="tca">TCA</span>
+                        <span class="end">End</span>
+                    </div>
+                    <div class="body">
+                        <ul>
+                            {{#if locals.isMobile}}
+                                {{#each (Array 5)}}
+                                    <li>
+                                        <label>
+                                            <span class="index" data-label="index">{{sum @index 1}}</span>
+                                            <span class="visualize" data-label="Visualize">
+                                                <input type="radio" name="radio" class="default">
+                                                <span></span>
+                                            </span>
+                                            <span class="primary" data-label="Primary">39227</span>
+                                            <span class="secondary" data-label="Secondary">46495</span>
+                                            <span class="dca" data-label="DCA (km)">3.216</span>
+                                            <span class="start" data-label="Start">-</span>
+                                            <span class="tca" data-label="TCA">Thu, 09 Dec 2021 11:22:26 GMT</span>
+                                            <span class="end" data-label="End">-</span>
+                                        </label>
+                                    </li>
+                                {{/each}}
+                            {{else}}
+                                {{#each (Array 25)}}
+                                    <li>
+                                        <label>
+                                            <span class="index" data-label="index">{{sum @index 1}}</span>
+                                            <span class="visualize" data-label="Visualize">
+                                                <input type="radio" name="radio" class="default">
+                                                <span></span>
+                                            </span>
+                                            <span class="primary" data-label="Primary">39227</span>
+                                            <span class="secondary" data-label="Secondary">46495</span>
+                                            <span class="dca" data-label="DCA (km)">3.216</span>
+                                            <span class="start" data-label="Start">-</span>
+                                            <span class="tca" data-label="TCA">Thu, 09 Dec 2021 11:22:26 GMT</span>
+                                            <span class="end" data-label="End">-</span>
+                                        </label>
+                                    </li>
+                                {{/each}}
+                            {{/if}}
+                        </ul>
+                        {{#if locals.isMobile}}
+                            <div class="more">See More</div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+<script>
+    $('.tblResult .output_show').click(function() {
+        var checked = $(this).is(':checked'),
+                tblContainer = $('.tblResult .tblContainer');
+
+        if (checked) {
+            $(tblContainer).slideDown(700, 'easeInOutExpo');
+        } else {
+            $(tblContainer).slideUp(700, 'easeInOutExpo');
+        }
+    });
+
+</script>

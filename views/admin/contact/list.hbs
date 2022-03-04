@@ -1,0 +1,132 @@
+<style>
+    .pg_wrap > ul {
+        list-style: none;
+    }
+
+    .pg_wrap > ul > li {
+        float: left;
+    }
+
+    .pg_wrap > ul > li.pg_empty {
+        border: 0;
+        padding: 0;
+    }
+
+    .pg_wrap > ul > li.pg_empty:hover {
+        cursor: default;
+        color: #0d0d0d;
+        background: #ffffff;
+    }
+</style>
+
+<section class="container">
+    <div class="page-title">{{ title }}</div>
+
+    <input type="hidden" id="field" name="field" value="{{ field }}">
+    <input type="hidden" id="sort" name="sort" value="{{ sort }}">
+
+    <!--
+        <form name="" action="" method="post">
+
+            <div class="data-search-wrap">
+                <div class="data-sel">
+                    <select data-style="selectColor-black">
+                        <option data-subtext="(Sub)">옵션A</option>
+                        <option>옵션B</option>
+                        <option>옵션C</option>
+                    </select>
+                    <select data-style="selectColor-gray">
+                        <option data-subtext="(Sub)">옵션A</option>
+                        <option>옵션B</option>
+                        <option>옵션C</option>
+                    </select>
+                    <select data-live-search="true">
+                        <option>옵션 검색</option>
+                        <option>옵션A</option>
+                        <option>옵션B</option>
+                        <option>옵션C</option>
+                        <option>옵션D</option>
+                        <option>옵션E</option>
+                        <option>옵션F</option>
+                        <option>옵션G</option>
+                        <option>옵션H</option>
+                        <option>옵션I</option>
+                    </select>
+                    <select id="search-cate">
+                        <option>검색항목</option>
+                        <option>아이디</option>
+                        <option>이름</option>
+                        <option>연락처</option>
+                    </select>
+                    <input type="text" name="" value="" class="span250" placeholder="검색어">
+                    <a href="#" class="btn gray">검색</a>
+                </div>
+            </div>
+        </form>
+        -->
+
+    <div class="tbl-basic cell td-h4 mt10">
+        <div class="tbl-header">
+            <div class="caption">총 <b>{{data.meta.totalItems}}</b>개 글이 있습니다</div>
+            <!--
+            <div class="rightSet">
+            <a href="#" class="btn green small icon-excel">엑셀 다운로드</a>
+            </div>
+            -->
+        </div>
+        <table>
+            <colgroup>
+                <col width="50">
+                <col>
+                <col width="140">
+                <col width="160">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>
+                    <a href="#" class="">No</a>
+                </th>
+                <th>
+                    <a href="#" class="sort" data-field="title">Subject</a>
+                </th>
+                <th>
+                    <a href="#" class="sort" data-field="id">Email</a>
+                </th>
+                <th>
+                    <a href="#" class="sort" data-field="date">Date</a>
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#if data.items }}
+                {{#each data.items}}
+                    <tr>
+                        <td>
+                            {{itemNumber ../data.meta.totalItems
+                                         ../data.meta.currentPage
+                                         ../data.meta.itemsPerPage
+                                         ../data.meta.itemCount
+                                         @index}}
+                        </td>
+                        <td>
+                            <a href="/admin/{{../menu}}/{{this.id}}">{{this.subject}}</a>
+                        </td>
+                        <td>{{this.email}}</td>
+                        <td>{{dateFormat this.created_at 'yyyy-MM-dd HH:mm'}}</td>
+                    </tr>
+                {{/each}}
+            {{else}}
+                <tr>
+                    <td colspan="6" class="td_empty">
+                        <div class="empty_list" data-text="등록된 게시물이 없습니다."></div>
+                    </td>
+                </tr>
+            {{/if}}
+            </tbody>
+        </table>
+
+        {{> paginations/type01 }}
+
+    </div>
+</section>

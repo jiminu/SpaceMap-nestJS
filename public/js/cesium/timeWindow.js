@@ -1,0 +1,10 @@
+const TLEdownloadTime = '2022-03-03T15:00:00';
+const initialTimeWindow = '2022-03-04T00:00:00Z';
+const endTimeWindow = '2022-03-06T00:00:00Z';
+const MIN_TIME_LIMIT = 0;
+const MAX_TIME_LIMIT = 172800;
+window.TLEdownloadTime = TLEdownloadTime;
+window.initialTimeWindow = initialTimeWindow;
+window.endTimeWindow = endTimeWindow;
+window.MIN_TIME_LIMIT = MIN_TIME_LIMIT;
+window.MAX_TIME_LIMIT = MAX_TIME_LIMIT;

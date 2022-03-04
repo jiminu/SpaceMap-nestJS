@@ -1,0 +1,71 @@
+<div class="subpage" id="resources">
+
+    <div class="sub-top"
+         style="background-image:url('/img/subpage/top/sub-top-res{{#if locals.isMobile}}-mobile{{/if}}.png')">
+        <div class="txtCon">
+            <div class="h1 wow fadeInRight">{{#if (isEqual title 'media')}}Media{{/if}}{{#if (isEqual title 'document')}}Documents{{/if}}</div>
+        </div>
+    </div>
+
+    <div class="bo_list container">
+        <div class="tbl-basic">
+            <!--
+            <form name="" action="" method="post">
+                <div class="tbl-top">
+                    <select name="" class="{{#if locals.isDesktop}}selectpicker{{/if}}">
+                        <option>All</option>
+                        <option>....</option>
+                        <option>....</option>
+                    </select>
+                    <span class="inpContainer ml5"><a href="#" class="btnSearch"></a><input type="text" name="" class=""
+                                                                                            placeholder=""></span>
+                </div>
+            </form>
+            -->
+
+            <div class="flex-table">
+                <ul>
+                    <li class="header">
+                        <span class="num">No</span>
+                        <span class="flex1">Title</span>
+                        <span class="file">Attachment</span>
+                        <span class="date">date</span>
+                    </li>
+                    {{#if data.items}}
+                            {{#each data.items}}
+                                <li>
+                                    <div class="num">
+                                        {{itemNumber ../data.meta.totalItems
+                                                    ../data.meta.currentPage
+                                                    ../data.meta.itemsPerPage
+                                                    ../data.meta.itemCount
+                                                    @index}}
+                                    </div>
+                                    <div class="title">
+                                        <a href="/resource/view/{{this.id}}">{{this.title}}</a>
+                                    </div>
+                                    <div class="file">
+                                        {{#each this.files}}
+                                            <a href="/resource/uploads/{{this.filename}}"
+                                            class="doc-download"
+                                            title="{{this.origin_name}}"
+                                            download></a>
+                                        {{/each}}
+                                    </div>
+                                    <div class="date">{{dateFormat this.created_at 'yyyy-MM-dd'}}</div>
+                                </li>
+                            {{/each}}
+                        
+                    {{else}}
+                        <li></li>
+                    {{/if}}
+                </ul>
+            </div>
+
+            {{> paginations/type02 }}
+        </div>
+
+    </div>
+
+</div>
+

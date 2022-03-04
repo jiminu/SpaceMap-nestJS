@@ -1,0 +1,129 @@
+<!-- <div class="subpage" id="service02"> -->
+<div class="subpage" id="service01">
+
+    <div class="sub-top"
+         style="background-image:url('/img/subpage/top/sub-top02{{#if locals.isMobile}}-mobile{{/if}}.png')">
+        <div class="txtCon">
+            <div class="h1 wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.1s">Services</div>
+            <p class="wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.3s">
+                SpaceMap provides realtime or near realtime<br>
+                services upon customer-supplied input parameters.<br>
+                The services include the followings.
+            </p>
+        </div>
+    </div>
+
+    <section class="secConainer">
+        <div class="section-title">Optimization Services</div>
+
+        <ul class="ul-container">
+            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <!-- <div class="img-con">
+                    <img src="/img/subpage/img04.png" >
+                    <p class="img-info">
+                        When a primary conjunction is predicted, a collision-avoiding maneuver is found so that it is safe enough but does not cause any dangerous secondary and tertiary conjunctions.<br><br>
+                        SpaceMap maintains a tiny combinatorial search space.
+                    </p>
+                </div> -->
+
+                <div class="slide-img-con" style="display:none;">
+                    <div class="swiper-container" style="{{#if locals.isDesktop}}margin-top:270px;{{/if}}">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/img/subpage/4-1. collision avoidance.png" class="border">
+                                <p class="img-info">
+                                    When a primary conjunction is predicted, a collision-avoiding maneuver is found so
+                                    that it is safe enough but does not cause any dangerous secondary and tertiary
+                                    conjunctions.<br><br>
+                                    SpaceMap maintains a tiny combinatorial search space.
+                                </p>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="/img/subpage/4-2-1. collision avoidance.jpg" class="border">
+                                <p class="img-info">
+                                    We discretize the timelines for maneuver start and propulsion duration and evalaute
+                                    a sufficiently large alternatives by taking advantage of SpaceMap’s accurate yet
+                                    fast speed of each evaluation. The scores of alternatives are stored in the Maneuver
+                                    Reward Matrix from which satellite operator can choose the optimal choice.
+                                </p>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="/img/subpage/4-2-2. collision avoidance.png" class="border">
+                                <p class="img-info">
+                                    We discretize the timelines for maneuver start and propulsion duration and evalaute
+                                    a sufficiently large alternatives by taking advantage of SpaceMap’s accurate yet
+                                    fast speed of each evaluation. The scores of alternatives are stored in the Maneuver
+                                    Reward Matrix from which satellite operator can choose the optimal choice.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="swiper-prev"></span>
+                    <span class="swiper-next"></span>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="contents-box">
+                    <div class="box-title">Maneuver Optimization</div>
+                    <!-- <div class="box-sub-title">How to optimally avoid a predicted conjunction?</div> -->
+                    <p>
+						Suppose that you want to maneuver to avoid a predicted conjunction. You want to be as safe as possible while you minimize propellant usage and mission interrupt. As a maneuver can cause a secondary and tertiary conjunctions with nearby objects, a computation-intensive spatiotemporal neighborhood exploration is inevitable. We take a set of your maneuver alternatives and quickly evaluate them to produce Maneuver Reward Matrix from which you can make an optimal choice.
+                    </p>
+                    <a href="/cesium/q1" class="link-exp wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">EXPLORE</a>
+                </div>
+            </li>
+
+            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                <div class="img-con" style="display:none;">
+                    <!-- <img src="/img/subpage/img05.png" class="border"> -->
+                    <video src="/img/main/section-thumb/service_02_slide02.mp4" controls class="video"
+                           poster="/img/main/section-thumb/service_02_slide02_poster.png"
+                           style="{{#if
+                                   locals.isDesktop}}position: absolute;left: 0;bottom: 0;border-radius: 30px;max-width:530px;{{else}}position:relative;width:100%;{{/if}}">
+                        ﻿
+                    </video>
+                    <p class="img-info">
+                        We discretize the timelines for maneuver start and propulsion duration and evalaute a
+                        sufficiently large alternatives by taking advantage of SpaceMap’s accurate yet fast speed of
+                        each evaluation.<br><br>
+                        The scores of alternatives are stored in the Maneuver Reward Matrix from which satellite
+                        operator can choose the optimal choice.
+                    </p>
+                </div>
+                <div class="contents-box">
+                    <div class="box-title">Data Transmission Optimization</div>
+                    <!-- <div class="box-sub-title">Maximize the utilization of my constellation.</div> -->
+                    <p>
+						If you own a communication constellation, you want to maximize its utilization. If you can increase 5% utilization of a 2,000 satellite constellation, you may save about $20M/year (See the Whitepaper). There are many optimization problems in constellations with extreme spatiotemporal dynamics. We provide the best-possible solution to many such problems through our computational geometric infrastructure. The demo video is just one of the simplest examples.
+                    </p>
+                    <a href="/cesium/q1" class="link-exp wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">EXPLORE</a>
+                </div>
+            </li>
+        </ul>
+
+    </section>
+</div>
+
+
+<script>
+    $('.slide-img-con').each(function() {
+        var section_thumb = $(this);
+        var mySwiper = new Swiper($(section_thumb.find('.swiper-container')), {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            centeredSlides: true,
+            autoHeight: true,
+            onSlideChangeStart: function() {},
+            onSlideChangeEnd: function() {
+                if ($('.swiper-slide-prev video, .swiper-slide-next video').length) {
+                    $('.swiper-slide-prev video, .swiper-slide-next video').get(0).pause();
+                }
+            },
+            prevButton: $(section_thumb.find('.swiper-prev')),
+            nextButton: $(section_thumb.find('.swiper-next')),
+            pagination: $(section_thumb.find('.swiper-pagination')),
+            paginationClickable: true,
+        });
+    });
+</script>

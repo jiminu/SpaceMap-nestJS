@@ -1,0 +1,60 @@
+<div class="subpage" id="resources">
+
+    <div class="sub-top"
+         style="background-image:url('/img/subpage/top/sub-top-res{{#if locals.isMobile}}-mobile{{/if}}.png')">
+        <div class="txtCon">
+            <div class="h1 wow fadeInRight">{{#if (isEqual title 'media')}}Media{{/if}}{{#if (isEqual title 'document')}}Documents{{/if}}</div>
+        </div>
+    </div>
+
+    <div class="bo_view container">
+
+        <div class="bo_v_header">
+            <!--            <span class="num">200</span>-->
+            <span class="title">{{data.title}}</span>
+            <span class="date">{{dateFormat this.created_at 'yyyy-MM-dd'}}</span>
+        </div>
+        <div class="bo_v_body">
+            <div class="info row">
+                <span class="label">Attachment</span>
+                <ul>
+                    {{#each data.files}}
+                        <li>
+                            <a href="/resource/uploads/{{this.filename}}"
+                               class="doc-download"
+                               title="{{this.origin_name}}"
+                               download>{{this.origin_name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <p class="con row">
+                {{data.content}}
+            </p>
+        </div>
+        <div class="bo_v_bottom">
+            <div class="row">
+                <span class="label prev">previous post</span>
+                <a href="/resource/{{prev.id}}" class="title">{{prev.title}}</a>
+            </div>
+            <div class="row">
+                <span class="label next">next post</span>
+                <a href="/resource/view/{{next.id}}" class="title">{{next.title}}</a>
+            </div>
+        </div>
+
+        <div class="btnSet">
+            <a href="#" onclick="history.back()">List</a>
+        </div>
+
+    </div>
+
+</div>
+
+{{#if locals.isMobile}}
+    <script>
+        $('.bo_v_body .info .label').click(function() {
+            $(this).next('ul').slideToggle(300, 'easeInOutExpo');
+        });
+    </script>
+{{/if}}

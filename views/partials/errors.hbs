@@ -1,0 +1,13 @@
+<div id="errors" class="hidden">
+    {{#each errors}}
+        <input type="hidden" value="{{this}}">
+    {{/each}}
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#errors > input:hidden').each(function () {
+            alert($(this).val());
+        });
+    });
+</script>

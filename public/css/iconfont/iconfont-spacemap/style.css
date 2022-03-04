@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'iconfont-spacemap';
+  src:  url('fonts/iconfont-spacemap.eot?7p9oa9');
+  src:  url('fonts/iconfont-spacemap.eot?7p9oa9#iefix') format('embedded-opentype'),
+    url('fonts/iconfont-spacemap.ttf?7p9oa9') format('truetype'),
+    url('fonts/iconfont-spacemap.woff?7p9oa9') format('woff'),
+    url('fonts/iconfont-spacemap.svg?7p9oa9#iconfont-spacemap') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="iconfont-"], [class*=" iconfont-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont-spacemap' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont-53:before {
+  content: "\e900";
+}
+.iconfont-54:before {
+  content: "\e901";
+}
+.iconfont-55:before {
+  content: "\e902";
+}
+.iconfont-56:before {
+  content: "\e903";
+}
+.iconfont-1:before {
+  content: "\e904";
+}

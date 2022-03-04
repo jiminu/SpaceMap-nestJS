@@ -1,0 +1,137 @@
+<section id="write" class="container">
+    <div class="page-title">{{ title }}</div>
+
+    <form id="form" action="{{action}}" method="post">
+
+        {{{csrfTag}}}
+
+        <div class="writeContents">
+            <div class="wr-wrap line label200">
+                <div class="wr-list">
+                    <div class="wr-list-label">Name</div>
+                    <div class="wr-list-con">
+                        {{data.name}}
+                    </div>
+                </div>
+
+                <div class="wr-list">
+                    <div class="wr-list-label">Email</div>
+                    <div class="wr-list-con">
+                        {{data.email}}
+                    </div>
+                </div>
+
+                <div class="wr-list">
+                    <div class="wr-list-label">Subject</div>
+                    <div class="wr-list-con">
+                        <input type="text" id="subject" name="subject" value="{{data.subject}}" class="span"
+                               placeholder="제목">
+                    </div>
+                </div>
+
+                <div class="wr-list">
+                    <div class="wr-list-label flex-start">Message</div>
+                    <div class="wr-list-con">
+                        <textarea name="message" id="message" rows="10" cols="100"
+                                  style="width: 100%; height: 500px;">{{data.message}}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btnSet">
+                <a href="#" class="btn submit">확인</a>
+                {{#if data}}
+                    <a href="#" class="btn red btnDelete">삭제</a>
+                {{/if}}
+                <a href="#" class="btn gray btnList">리스트</a>
+            </div>
+        </div>
+    </form>
+
+    <form id="fileForm" action="" method="post">
+        <input type="file" id="file" name="file">
+    </form>
+
+    <form id="deleteForm" action="{{deleteAction}}" method="post">
+        {{{csrfTag}}}
+        <input type="hidden" name="{{data.id}}">
+    </form>
+
+</section>
+
+
+<style>
+    #fileForm > .filebox {
+        display: none;
+    }
+
+    #display_date {
+        width: 100px;
+        text-align: center;
+    }
+</style>
+
+<script src="/cozyfex/js/form/datepicker/datepicker.js"></script>
+<script src="/cozyfex/js/form/datepicker/datepicker.ko-KR.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        $('#fileForm').ajaxForm({
+            url: '/admin/upload?_csrf={{csrfToken}}',
+            dataType: 'json',
+            clearForm: true,
+            resetForm: true,
+            success: function(data) {
+                let file = '';
+                file += '<li>';
+                file += '   <input type="hidden" name="files" value=\'' + JSON.stringify(data) + '\'>';
+                file += data.origin_name + '<span><i class="del"></i></span>';
+                file += '</li>';
+                $('.upload-file').append(file);
+            },
+        });
+
+        $('.upload-file').on('click', 'i.del', function() {
+            $(this).parent().parent().remove();
+            return false;
+        });
+
+        $('.submit').click(function() {
+            if (!$('#subject').val()) {
+                alert('제목을 입력해 주세요.');
+                $('#title').focus();
+                return false;
+            }
+            if (!$('#message').val()) {
+                alert('내용을 입력해 주세요.');
+                return false;
+            }
+
+            $('#form').submit();
+            return false;
+        });
+
+        $('.btnFile').click(function() {
+            $('[name="file"]').click();
+
+            return false;
+        });
+
+        $('[name="file"]').change(function() {
+            $('#fileForm').submit();
+        });
+
+        $('.btnDelete').click(function() {
+            if (confirm('삭제하시겠습니까?')) {
+                $('#deleteForm').submit();
+            }
+            return false;
+        });
+
+        $('.btnList').click(function() {
+            location.href = '';
+
+            return false;
+        });
+    });
+</script>

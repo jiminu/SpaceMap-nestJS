@@ -1,0 +1,157 @@
+<section id="write" class="container">
+    <div class="page-title">{{ title }}</div>
+
+    <form id="boardForm" action="{{action}}" method="post">
+
+        {{{csrfTag}}}
+
+        <div class="writeContents">
+            <div class="wr-wrap line label200">
+                <div class="wr-list">
+                    <div class="wr-list-label">Type</div>
+                    <div class="wr-list-con">
+                        <select name="board_type" id="board_type">
+                            <option value="document" {{#if (isEqual data.board_type 'document')}}selected{{/if}}>
+                                Document
+                            </option>
+                            <option value="media" {{#if (isEqual data.board_type 'media')}}selected{{/if}}>
+                                Media
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="wr-list">
+                    <div class="wr-list-label">Title</div>
+                    <div class="wr-list-con">
+                        <input type="text" id="title" name="title" value="{{data.title}}" class="span"
+                               placeholder="Title">
+                    </div>
+                </div>
+
+                <div class="wr-list">
+                    <div class="wr-list-label flex-start">Content</div>
+                    <div class="wr-list-con">
+                        <textarea name="content" id="content" rows="10" cols="100"
+                                  style="width: 100%; height: 500px;">{{data.content}}</textarea>
+                    </div>
+                </div>
+
+                <div class="wr-list">
+                    <div class="wr-list-label flex-start">첨부파일</div>
+                    <div class="wr-list-con">
+                        <a href="#" class="btn blue small btnFile icon-file-o">파일 업로드</a>
+                        <ul class="upload-file">
+                            {{#if data.files}}
+                                {{#each data.files}}
+                                    <li>
+                                        <input type="hidden" name="files" value="{{JsonToString this}}">
+                                        <a href="/admin/uploads/{{this.filename}}" target="_blank">
+                                            {{this.origin_name}}<i class="del"></i>
+                                        </a>
+                                    </li>
+                                {{/each}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btnSet">
+                <a href="#" class="btn submit">확인</a>
+                {{#if board}}
+                    <a href="#" class="btn red btnDelete">삭제</a>
+                {{/if}}
+                <a href="#" class="btn gray btnList">리스트</a>
+            </div>
+        </div>
+    </form>
+
+    <form id="fileForm" action="" method="post">
+        <input type="file" id="file" name="file">
+    </form>
+
+    <form id="deleteForm" action="{{deleteAction}}" method="post">
+        {{{csrfTag}}}
+        <input type="hidden" name="{{board.id}}">
+    </form>
+
+</section>
+
+
+<style>
+    #fileForm > .filebox {
+        display: none;
+    }
+
+    #display_date {
+        width: 100px;
+        text-align: center;
+    }
+</style>
+
+<script src="/cozyfex/js/form/datepicker/datepicker.js"></script>
+<script src="/cozyfex/js/form/datepicker/datepicker.ko-KR.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#fileForm').ajaxForm({
+            url: '/admin/upload?_csrf={{csrfToken}}',
+            dataType: 'json',
+            clearForm: true,
+            resetForm: true,
+            success: function (data) {
+                let file = ''
+                file += '<li>'
+                file += '   <input type="hidden" name="files" value=\'' + JSON.stringify(data) + '\'>'
+                file += data.origin_name + '<span><i class="del"></i></span>'
+                file += '</li>'
+                $('.upload-file').append(file)
+            },
+        })
+
+        $('.upload-file').on('click', 'i.del', function () {
+            $(this).parent().parent().remove()
+            return false
+        })
+
+        $('.submit').click(function () {
+            if (!$('#title').val()) {
+                alert('제목을 입력해 주세요.')
+                $('#title').focus()
+                return false
+            }
+            if (!$('#content').val()) {
+                alert('내용을 입력해 주세요.')
+                editor.focus()
+                return false
+            }
+
+            $('#boardForm').submit()
+            return false
+        })
+
+        $('.btnFile').click(function () {
+            $('[name="file"]').click()
+
+            return false
+        })
+
+        $('[name="file"]').change(function () {
+            $('#fileForm').submit()
+        })
+
+        $('.btnDelete').click(function () {
+            if (confirm('삭제하시겠습니까?')) {
+                $('#deleteForm').submit()
+            }
+            return false
+        })
+
+        $('.btnList').click(function () {
+            location.href = ''
+
+            return false
+        })
+    })
+</script>
