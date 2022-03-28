@@ -8,6 +8,6 @@ import { LocalAdminStrategy } from './local-admin.strategy';
 
 @Module({
   imports: [UserModule, PassportModule],
-  providers: [AuthService, LocalStrategy, LocalAdminStrategy, GoogleStrategy],
+  providers: [AuthService, LocalStrategy, LocalAdminStrategy],
 })
 export class AuthModule {}
