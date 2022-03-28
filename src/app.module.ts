@@ -41,15 +41,15 @@ import { AdminController } from './admin/admin.controller';
     SpaceMapProductModule,
     CesiumModule,
     ContactModule,
-    PPDBModule,
-    MongooseModule.forRoot(
-      process.env.MONGODB_URL ??
-        'mongodb://spacemapdb:voronoi1!@docdb-2021-10-07-08-59-30.cluster-cciu2wubcctl.ap-northeast-2.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false',
-      {
-        dbName: 'COOP',
-      },
-    ),
-    TleModule,
+    // PPDBModule,
+    // MongooseModule.forRoot(
+    //   process.env.MONGODB_URL ??
+    //     'mongodb://spacemapdb:voronoi1!@docdb-2021-10-07-08-59-30.cluster-cciu2wubcctl.ap-northeast-2.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false',
+    //   {
+    //     dbName: 'COOP',
+    //   },
+    // ),
+    // TleModule,
     MailerModule.forRoot({
       transport: {
         service: 'gmail',
