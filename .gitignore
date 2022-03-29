@@ -1,5 +1,5 @@
 # Custom
-.env
+# .env
 .env.production
 .env.development
 yarn.lock
@@ -183,7 +183,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# .env
 .env.test
 .env.development
 
